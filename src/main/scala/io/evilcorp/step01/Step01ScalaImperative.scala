@@ -6,8 +6,7 @@ object Step01ScalaImperative{
       if(s.equals("nice")){
         builder.append("XXXX ")
       }else{
-        builder.append(s)
-        builder.append(" ")
+        builder.append(s).append(" ")
       }
     }
     builder.toString()

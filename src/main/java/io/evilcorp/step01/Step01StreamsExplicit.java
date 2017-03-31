@@ -9,8 +9,7 @@ public class Step01StreamsExplicit implements UnaryOperator<String> {
     public String apply(String s) {
         return Arrays.stream(s.split(" "))
                 .map(this::mapper)
-                .collect(Collectors.joining(" "))
-                .toString();
+                .collect(Collectors.joining(" "));
     }
 
     private String mapper(String s){

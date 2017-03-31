@@ -9,11 +9,7 @@ public class Step01Imperative implements UnaryOperator<String> {
         String[] strings = s.split(" ");
         StringJoiner joiner = new StringJoiner(" ");
         for(String string : strings){
-            if(string.equalsIgnoreCase("nice")){
-                joiner.add("XXXX");
-            }else{
-                joiner.add(string);
-            }
+            joiner.add( string.equalsIgnoreCase("nice") ? "XXXX" : string );
         }
         return joiner.toString();
     }

@@ -9,7 +9,6 @@ public class Step01StreamsImplicit implements UnaryOperator<String> {
     public String apply(String s) {
         return Arrays.stream(s.split(" "))
                 .map( string -> string.equalsIgnoreCase("nice") ? "XXXX" : string )
-                .collect(Collectors.joining(" "))
-                .toString();
+                .collect(Collectors.joining(" "));
     }
 }
