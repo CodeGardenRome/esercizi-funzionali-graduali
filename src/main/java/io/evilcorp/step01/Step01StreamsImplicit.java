@@ -1,4 +1,4 @@
-package io.evilcorp;
+package io.evilcorp.step01;
 
 import java.util.Arrays;
 import java.util.function.UnaryOperator;
@@ -8,7 +8,7 @@ public class Step01StreamsImplicit implements UnaryOperator<String> {
     @Override
     public String apply(String s) {
         return Arrays.stream(s.split(" "))
-                .map(string->string.equalsIgnoreCase("nice") ? "XXXX" : string)
+                .map( string -> string.equalsIgnoreCase("nice") ? "XXXX" : string )
                 .collect(Collectors.joining(" "))
                 .toString();
     }

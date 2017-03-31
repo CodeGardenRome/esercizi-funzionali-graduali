@@ -1,5 +1,9 @@
 package io.evilcorp;
 
+import io.evilcorp.step01.Step01Imperative;
+import io.evilcorp.step01.Step01Javaslang;
+import io.evilcorp.step01.Step01StreamsExplicit;
+import io.evilcorp.step01.Step01StreamsImplicit;
 import org.junit.Assert;
 import org.junit.Test;
 

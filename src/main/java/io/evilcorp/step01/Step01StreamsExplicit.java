@@ -1,4 +1,4 @@
-package io.evilcorp;
+package io.evilcorp.step01;
 
 import java.util.Arrays;
 import java.util.function.UnaryOperator;
