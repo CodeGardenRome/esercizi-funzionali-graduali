@@ -6,10 +6,10 @@ import java.util.function.UnaryOperator;
 public class Step01Imperative implements UnaryOperator<String> {
     @Override
     public String apply(String s) {
-        String[] strings = s.split(" ");
+        String[] words = s.split(" ");
         StringJoiner joiner = new StringJoiner(" ");
-        for(String string : strings){
-            joiner.add( string.equalsIgnoreCase("nice") ? "XXXX" : string );
+        for(String word : words){
+            joiner.add( word.equalsIgnoreCase("nice") ? "XXXX" : word );
         }
         return joiner.toString();
     }
