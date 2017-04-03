@@ -10,10 +10,9 @@ import static javaslang.API.For;
 public class Step01Javaslang implements UnaryOperator<String> {
 
     @Override
-    public String apply(String s) {
-        return List.of(s.split(" "))
-                .map(string -> string.equalsIgnoreCase("nice") ? "XXXX" : string)
-                .intersperse(" ")
-                .fold("", String::concat);
+    public String apply(String string) {
+        return List.of(string.split(" "))
+                .map(word -> word.equalsIgnoreCase("nice") ? "XXXX" : word)
+                .mkString(" ");
     }
 }
