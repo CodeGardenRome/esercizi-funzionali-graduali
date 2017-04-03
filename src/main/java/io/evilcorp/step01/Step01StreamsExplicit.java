@@ -2,21 +2,17 @@ package io.evilcorp.step01;
 
 import java.util.Arrays;
 import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.joining;
 
 public class Step01StreamsExplicit implements UnaryOperator<String> {
     @Override
     public String apply(String s) {
         return Arrays.stream(s.split(" "))
-                .map(this::mapper)
-                .collect(Collectors.joining(" "));
+                .map(Step01StreamsExplicit::evil)
+                .collect(joining(" "));
     }
 
-    private String mapper(String s){
-        if(s.equals("nice")){
-            return "XXXX";
-        }else{
-            return s;
-        }
+    private static String evil(String s){
+        return s.equalsIgnoreCase("nice") ? "XXXX" : s;
     }
 }
