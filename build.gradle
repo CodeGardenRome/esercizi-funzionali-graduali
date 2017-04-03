@@ -5,12 +5,30 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/3.4.1/userguide/tutorial_java_projects.html
  */
-
 project.version = '1.0-SNAPSHOT'
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:0.15"
+  }
+}
+
+//Comment the following plugin, if you want to resume junit tests as defaults in gradle
+apply plugin: "com.github.maiflai.scalatest"
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'scala'
+
+
+test {
+    maxParallelForks = 1
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -27,4 +45,6 @@ dependencies {
     compile "io.javaslang:javaslang:$javaslangVersion"
     compile "org.scalaz:scalaz-core_2.12:$scalazVersion"
     testCompile "junit:junit:4.12"
+    testCompile "org.scalatest:scalatest_2.12:3.0.1"
+    testRuntime 'org.pegdown:pegdown:1.4.2'
 }
