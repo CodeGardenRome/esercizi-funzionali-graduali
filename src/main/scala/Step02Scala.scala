@@ -30,6 +30,7 @@ object Step02ScalaFunctional {
 }
 
 object Marked {
+	private val marker = 'X'
 	//could be memoized
-	def apply(word: String): String = Array.fill(word.size)('X').mkString
+	def apply(word: String): String = Array.fill(word.size)(marker).mkString
 }
