@@ -1,12 +1,12 @@
 package io.evilcorp.step02;
 
-import javaslang.Function2;
-import javaslang.collection.Set;
-import javaslang.collection.CharSeq;
+import io.vavr.Function2;
+import io.vavr.collection.CharSeq;
+import io.vavr.collection.Set;
 
 import java.util.function.UnaryOperator;
 
-public class Step02Javaslang implements Function2<Set<String>, String, String> {
+public class Step02Vavr implements Function2<Set<String>, String, String> {
 
     @Override
     public String apply(Set<String> censored, String text) {

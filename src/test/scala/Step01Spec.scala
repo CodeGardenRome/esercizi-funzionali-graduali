@@ -34,7 +34,7 @@ class Step01Spec extends WordSpec with Matchers {
 
 	"The javaslang censorship function" should {
 		"censor nice words" in {
-			new Step01Javaslang()(input) shouldBe expected
+			new Step01Vavr()(input) shouldBe expected
 		}
 	}
 

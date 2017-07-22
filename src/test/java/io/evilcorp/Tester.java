@@ -1,11 +1,10 @@
 package io.evilcorp;
 
 import io.evilcorp.step01.Step01Imperative;
-import io.evilcorp.step01.Step01Javaslang;
+import io.evilcorp.step01.Step01Vavr;
 import io.evilcorp.step01.Step01StreamsExplicit;
 import io.evilcorp.step01.Step01StreamsImplicit;
 import io.evilcorp.step02.Step02Imperative;
-import io.evilcorp.step02.Step02Javaslang;
 import io.evilcorp.step02.Step02Streams;
 import io.evilcorp.step03.Step03Imperative;
 import io.evilcorp.step03.Step03Streams;
@@ -25,7 +24,7 @@ public class Tester {
         step01Test(new Step01Imperative());
         step01Test(new Step01StreamsExplicit());
         step01Test(new Step01StreamsImplicit());
-        step01Test(new Step01Javaslang());
+        step01Test(new Step01Vavr());
     }
 
     @Test

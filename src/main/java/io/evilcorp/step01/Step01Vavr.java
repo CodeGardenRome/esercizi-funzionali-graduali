@@ -1,13 +1,10 @@
 package io.evilcorp.step01;
 
-import javaslang.collection.Array;
-import javaslang.collection.List;
+import io.vavr.collection.List;
 
 import java.util.function.UnaryOperator;
 
-import static javaslang.API.For;
-
-public class Step01Javaslang implements UnaryOperator<String> {
+public class Step01Vavr implements UnaryOperator<String> {
 
     @Override
     public String apply(String string) {

@@ -25,7 +25,7 @@ class Step02Spec extends WordSpec with Matchers {
 
 	"The javaslang censorship function" should {
 		"censor a list of provided words" in {
-			new Step02Javaslang()(javaslangCensored, input) shouldBe expected
+			new Step02Vavr()(javaslangCensored, input) shouldBe expected
 		}
 	}
 
