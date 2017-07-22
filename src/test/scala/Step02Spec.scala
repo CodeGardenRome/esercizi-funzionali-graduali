@@ -4,7 +4,7 @@ import org.scalatest._
 
 class Step02Spec extends WordSpec with Matchers {
 
-	import javaslang.collection.HashSet
+	import io.vavr.collection.HashSet
 
 	val censored = Set("nice", "pony", "sun", "light", "fun", "happy", "funny", "joy")
 	val javaslangCensored = HashSet.of("nice", "pony", "sun", "light", "fun", "happy", "funny", "joy")

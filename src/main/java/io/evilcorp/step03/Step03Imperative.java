@@ -2,28 +2,26 @@ package io.evilcorp.step03;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.function.BiFunction;
 
 public class Step03Imperative implements BiFunction<Set<String>, String, String> {
     @Override
     public String apply(Set<String> strings, String s) {
         String[] splitted = s.split(" ");
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(" ");
         for(String chunk : splitted){
             boolean found = false;
             for(String forbidden : strings){
-
                 if(chunk.startsWith(forbidden)){
-                    sb.append(String.join("", Collections.nCopies(chunk.length(), String.valueOf("X"))));
-                    sb.append(" ");
+                    joiner.add(String.join("", Collections.nCopies(chunk.length(), String.valueOf("X"))));
                     found = true;
-                    break;
                 }
             }
             if(!found){
-                sb.append(chunk).append(" ");
+                joiner.add(chunk);
             }
         }
-        return sb.substring(0, sb.length()-1).toString();
+        return joiner.toString();
     }
 }
