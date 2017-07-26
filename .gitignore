@@ -6,3 +6,5 @@ target/
 release.properties
 buildNumber.properties
 /incremental-katas-jvm-langs.iml
+/project/build.properties
+/incremental-katas-jvm-langs.ipr
