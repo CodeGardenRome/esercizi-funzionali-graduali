@@ -1,0 +1,15 @@
+a. Scrivere del codice che stampa 1,2,3
+b. Scrivere del codice che stampa i numeri pari tra 1 e 10
+c. Scrivere del codice che stampa i multipli di 7 tra 1 e 100
+d. Scrivere del codice che da "Tizio", "Caio" e "Sempronio" stampa quelli che cominciano per "C"
+e. Scrivere del codice che calcola la media dei multipli di 8 compresi tra 1 e 100
+f. Scrivere del codice che calcola la somma dei multipli di 6 compresi tra 1 e 100
+g. Scrivere del codice che da "Tizio", "Caio" e "Sempronio" li ordina e poi li stampa
+h. Scrivere del codice che da "Tizio", "Caio" e "Sempronio" li ordina e li restituisce come lista. Poi li stampa.
+i. Scrivere del codice che tra i numeri da 1 a 100 ne trova uno qualunque divisibile per 41 e lo stampa (usare findAny)
+j. Scrivere del codice che da "Tizio", "Caio" e "Sempronio" produce la stringa "Tizio, Caio, Sempronio" (Usare Collectors.joining)
+k. Scrivere del codice che da "Carlo", "Mario", "Alberto" crea un Set
+l. Sbagliato. Scusate.
+m. Scrivere del codice che da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" le raggruppa per la lunghezza del nome (Collector.groupingBy)
+n. Scrivere del codice che da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampa solamente le lunghezze dei loro nomi
+n. Scrivere del codice che da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampa solamente le iniziali dei loro nomi

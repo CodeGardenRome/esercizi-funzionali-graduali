@@ -5,4 +5,4 @@ scala:
 # safelist
 branches:
   only:
-  - sbt-build
+  - master
