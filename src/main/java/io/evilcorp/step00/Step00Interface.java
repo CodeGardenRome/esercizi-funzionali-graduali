@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.Set;
 
 public interface Step00Interface {
+
+
+
     // Stampare 1,2,3
     String stampa123();
 
@@ -14,7 +17,7 @@ public interface Step00Interface {
     // Stampare i multipli di 7 tra 1 e 100
     String multipliSetteMinoriCento();
 
-    // Da "Tizio", "Caio" e "Sempronio" stampare quelli che cominciano per "C"
+    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" stampare quelli che cominciano per "C"
     String inizianoPerC();
 
     // Calcolare la media dei multipli di 8 compresi tra 1 e 100
@@ -23,13 +26,13 @@ public interface Step00Interface {
     // Calcolare la somma dei multipli di 6 compresi tra 1 e 100
     int sommaMultipliSei();
 
-    // Da "Tizio", "Caio" e "Sempronio" ordinarli e stamparli.
+    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" ordinarli e stamparli.
     String ordinamentoEStampa();
 
     // Tra i numeri da 1 a 100 trovarne uno qualunque divisibile per 41 e stamparlo (usare findAny)
     int divisibileQuarantuno();
 
-    // Da "Tizio", "Caio" e "Sempronio" produrre la stringa "Tizio, Caio, Sempronio"
+    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" produrre la stringa "Tizio, Caio, Sempronio"
     String unione();
 
     // Da "Carlo", "Mario", "Alberto" creare un insieme

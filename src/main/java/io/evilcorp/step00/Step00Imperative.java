@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Step00Imperative implements Step00Interface {
 
-    private final String LINE_SEPARATOR = System.getProperty("line.separator");
+    private static final List<String> ELENCO_UOMINI = Arrays.asList("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
+    private static final List<String> ELENCO_DONNE = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
 
     // Stampare 1,2,3
     @Override
@@ -36,10 +37,10 @@ public class Step00Imperative implements Step00Interface {
         return joiner.toString();
     }
 
-    // Da "Tizio", "Caio" e "Sempronio" stampare quelli che cominciano per "C"
+    // Dall'elenco degli uomini, stampare quelli che cominciano per "C"
     @Override
     public String inizianoPerC(){
-        List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
+        List<String> uomini = ELENCO_UOMINI;
         StringJoiner joiner = new StringJoiner(", ");
         for(String uomo : uomini){
             if(uomo.startsWith("C")){
@@ -71,10 +72,12 @@ public class Step00Imperative implements Step00Interface {
         return sommaMultipli;
     }
 
-    // Da "Tizio", "Caio" e "Sempronio" ordinarli e stamparli.
+    // Dall'elenco degli uomini, ordinarli e stamparli.
     @Override
     public String ordinamentoEStampa(){
-        List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
+        List<String> uomini = new ArrayList<>();
+        Collections.copy(uomini, ELENCO_UOMINI);
+
         StringJoiner joiner = new StringJoiner(", ");
         Collections.sort(uomini);
         for(String uomo : uomini){
@@ -94,10 +97,10 @@ public class Step00Imperative implements Step00Interface {
         return -1;
     }
 
-    // Da "Tizio", "Caio" e "Sempronio" produrre la stringa "Tizio, Caio, Sempronio"
+    // Dall'elenco degli uomini, produrre la stringa che li contiene intervallati da virgola e spazio
     @Override
     public String unione(){
-        List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
+        List<String> uomini = ELENCO_UOMINI;
         StringJoiner joiner = new StringJoiner(", ");
         for(String uomo : uomini){
             joiner.add(uomo);
@@ -105,18 +108,18 @@ public class Step00Imperative implements Step00Interface {
         return joiner.toString();
     }
 
-    // Da "Carlo", "Mario", "Alberto" creare un insieme
+    // Dall'elenco degli uomini, creare un insieme
     @Override
     public Set<String> daStringheAInsieme(){
-        List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
+        List<String> uomini = ELENCO_UOMINI;
         Set<String> insiemeUomini = new HashSet(uomini);
         return insiemeUomini;
     }
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" raggruppare per la lunghezza del nome
+    // Dall'elenco delle donne, raggruppare per la lunghezza del nome
     @Override
     public Map<Integer,List<String>> raggruppareLunghezzaNome(){
-        List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
+        List<String> donne = ELENCO_DONNE;
         Map<Integer,List<String>> map = new HashMap<>();
         for(String donna : donne){
             int lunghezza = donna.length();
@@ -133,10 +136,10 @@ public class Step00Imperative implements Step00Interface {
     }
 
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le lunghezze dei loro nomi
+    // Dall'elenco delle donne, stampare solamente le lunghezze dei loro nomi
     @Override
     public String lunghezzeNomi(){
-        List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
+        List<String> donne = ELENCO_DONNE;
         StringJoiner joiner = new StringJoiner(", ");
         for(String donna : donne){
             Integer lunghezza = donna.length();
@@ -145,14 +148,14 @@ public class Step00Imperative implements Step00Interface {
         return joiner.toString();
     }
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le iniziali dei loro nomi
+    // Dall'elenco delle donne, stampare solamente le iniziali dei loro nomi
     @Override
     public String inizialiNomi(){
-        List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
+        List<String> donne = ELENCO_DONNE;
         StringJoiner joiner = new StringJoiner(", ");
         for(String donna : donne){
-            Character iniziale = donna.charAt(0);
-            joiner.add(iniziale.toString());
+            String iniziale = donna.substring(0,1);
+            joiner.add(iniziale);
         }
         return joiner.toString();
     }
