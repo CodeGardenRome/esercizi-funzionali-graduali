@@ -2,51 +2,56 @@ package io.evilcorp.step00;
 
 import java.util.*;
 
-public class Step00Imperative {
+public class Step00Imperative implements Step00Interface {
 
-    private final static String LINE_SEPARATOR = System.getProperty("line.separator");
+    private final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     // Stampare 1,2,3
-    public static String stampa123(){
-        StringBuilder sb = new StringBuilder();
-        for(int i=1; i<=3; i++){
-            sb.append(i).append(LINE_SEPARATOR);
+    @Override
+    public String stampa123(){
+        StringJoiner joiner = new StringJoiner(", ");
+        for(Integer i=1; i<=3; i++){
+            joiner.add(i.toString());
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Stampare i numeri pari tra 1 e 10
-    public static String pariMinoriCento(){
-        StringBuilder sb = new StringBuilder();
-        for(int i=1; i<=100; i+=2){
-            sb.append(i).append(LINE_SEPARATOR);
+    @Override
+    public String pariMinoriCento(){
+        StringJoiner joiner = new StringJoiner(", ");
+        for(Integer i=1; i<=100; i+=2){
+            joiner.add(i.toString());
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Stampare i multipli di 7 tra 1 e 100
-    public static String multipliSetteMinoriCento(){
-        StringBuilder sb = new StringBuilder();
-        for(int i=1; i<=100; i+=7){
-            sb.append(i).append(LINE_SEPARATOR);
+    @Override
+    public String multipliSetteMinoriCento(){
+        StringJoiner joiner = new StringJoiner(", ");
+        for(Integer i=1; i<=100; i+=7){
+            joiner.add(i.toString());
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Da "Tizio", "Caio" e "Sempronio" stampare quelli che cominciano per "C"
-    public static String inizianoPerC(){
+    @Override
+    public String inizianoPerC(){
         List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ");
         for(String uomo : uomini){
             if(uomo.startsWith("C")){
-                sb.append(uomo).append(LINE_SEPARATOR);
+                joiner.add(uomo);
             }
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Calcolare la media dei multipli di 8 compresi tra 1 e 100
-    public static Double mediaMultipliOtto(){
+    @Override
+    public Double mediaMultipliOtto(){
         int numeroMultipli = 0;
         double sommaMultipli = 0;
         for(int i=8; i<=100; i+=8){
@@ -57,7 +62,8 @@ public class Step00Imperative {
     }
 
     // Calcolare la somma dei multipli di 6 compresi tra 1 e 100
-    public static int sommaMultipliSei(){
+    @Override
+    public int sommaMultipliSei(){
         int sommaMultipli = 0;
         for(int i=6; i<=100; i+=6){
             sommaMultipli += i;
@@ -66,18 +72,20 @@ public class Step00Imperative {
     }
 
     // Da "Tizio", "Caio" e "Sempronio" ordinarli e stamparli.
-    public static String ordinamentoEStampa(){
+    @Override
+    public String ordinamentoEStampa(){
         List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ");
         Collections.sort(uomini);
         for(String uomo : uomini){
-            sb.append(uomo).append(LINE_SEPARATOR);
+            joiner.add(uomo);
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Tra i numeri da 1 a 100 trovarne uno qualunque divisibile per 41 e stamparlo (usare findAny)
-    public static int divisibileQuarantuno(){
+    @Override
+    public int divisibileQuarantuno(){
         for(int i=2; i<=100; i++){
             if(i % 41 == 0){
                 return i;
@@ -87,7 +95,8 @@ public class Step00Imperative {
     }
 
     // Da "Tizio", "Caio" e "Sempronio" produrre la stringa "Tizio, Caio, Sempronio"
-    public static String unione(){
+    @Override
+    public String unione(){
         List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
         StringJoiner joiner = new StringJoiner(", ");
         for(String uomo : uomini){
@@ -97,14 +106,16 @@ public class Step00Imperative {
     }
 
     // Da "Carlo", "Mario", "Alberto" creare un insieme
-    public static Set<String> daStringheAInsieme(){
+    @Override
+    public Set<String> daStringheAInsieme(){
         List<String> uomini = Arrays.asList("Tizio", "Caio", "Sempronio");
         Set<String> insiemeUomini = new HashSet(uomini);
         return insiemeUomini;
     }
 
     // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" raggruppare per la lunghezza del nome
-    public static Map<Integer,List<String>> raggruppareLunghezzaNome(){
+    @Override
+    public Map<Integer,List<String>> raggruppareLunghezzaNome(){
         List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
         Map<Integer,List<String>> map = new HashMap<>();
         for(String donna : donne){
@@ -123,25 +134,27 @@ public class Step00Imperative {
 
 
     // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le lunghezze dei loro nomi
-    public static String lunghezzeNomi(){
+    @Override
+    public String lunghezzeNomi(){
         List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ");
         for(String donna : donne){
-            int lunghezza = donna.length();
-            sb.append(lunghezza).append(LINE_SEPARATOR);
+            Integer lunghezza = donna.length();
+            joiner.add(lunghezza.toString());
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
     // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le iniziali dei loro nomi
-    public static String inizialiNomi(){
+    @Override
+    public String inizialiNomi(){
         List<String> donne = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ");
         for(String donna : donne){
-            char iniziale = donna.charAt(0);
-            sb.append(iniziale).append(LINE_SEPARATOR);
+            Character iniziale = donna.charAt(0);
+            joiner.add(iniziale.toString());
         }
-        return sb.toString();
+        return joiner.toString();
     }
 
 }

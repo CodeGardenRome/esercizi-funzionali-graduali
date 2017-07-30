@@ -9,3 +9,7 @@ buildNumber.properties
 /project/build.properties
 /incremental-katas-jvm-langs.ipr
 /incremental-katas-jvm-langs.iws
+/.classpath
+/.project
+/.settings/
+/project/
