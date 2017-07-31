@@ -2,7 +2,7 @@ package io.evilcorp;
 
 import io.evilcorp.step00.Step00Imperative;
 import io.evilcorp.step00.Step00Interface;
-import io.evilcorp.step00.Step00Streams;
+import io.evilcorp.step00.Step00StreamsExplicit;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class Step00Tester {
 
     @Test
     public void verificaStream(){
-        verifica(new Step00Streams());
+        verifica(new Step00StreamsExplicit());
     }
 
 }

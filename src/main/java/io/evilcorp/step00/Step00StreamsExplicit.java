@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Step00Streams implements Step00Interface {
+public class Step00StreamsExplicit implements Step00Interface {
 
     private static final Stream<String> STREAM_UOMINI = Stream.of("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
     private static final Stream<String> STREAM_DONNE = Stream.of("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
@@ -15,12 +15,16 @@ public class Step00Streams implements Step00Interface {
     // Filtra in modo che rimangano solo i numero minori di 100
     private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer < 100;
     private static final Function<Integer,String> DA_INTERO_A_STRINGA = (Integer integer) -> integer.toString();
-    private static final Collector<CharSequence, ?, String> PUNTO_E_SPAZIO = Collectors.joining(", ");
+    private static final Collector<CharSequence, ?, String> VIRGOLA_E_SPAZIO = Collectors.joining(", ");
 
     // Stampare 1,2,3
     @Override
     public String stampa123() {
-        return Stream.of("1","2","3").collect(Collectors.joining(", "));
+        Stream<Integer> stream = Stream.of(1,2,3);
+        Stream<String> stringhe = stream.map(DA_INTERO_A_STRINGA);
+        String risultato = stringhe.collect(VIRGOLA_E_SPAZIO);
+
+        return risultato;
     }
 
     // Stampare i numeri pari tra 1 e 10
@@ -31,7 +35,7 @@ public class Step00Streams implements Step00Interface {
         Stream<Integer> streamPari = Stream.iterate(0, unaryOperator);
         Stream<Integer> pariEMinoriCento = streamPari.filter( MINORE_DI_CENTO );
         Stream<String> stringhe = pariEMinoriCento.map( DA_INTERO_A_STRINGA );
-        String elenco = stringhe.collect( PUNTO_E_SPAZIO );
+        String elenco = stringhe.collect(VIRGOLA_E_SPAZIO);
 
         return elenco;
     }
@@ -45,7 +49,7 @@ public class Step00Streams implements Step00Interface {
         Stream<Integer> multipliSette = Stream.iterate(0, unaryOperator);
         Stream<Integer> multipliSetteMinoriCento = multipliSette.filter( MINORE_DI_CENTO );
         Stream<String> stringhe = multipliSetteMinoriCento.map(DA_INTERO_A_STRINGA);
-        String elenco = stringhe.collect(PUNTO_E_SPAZIO);
+        String elenco = stringhe.collect(VIRGOLA_E_SPAZIO);
 
         return elenco;
     }
@@ -57,7 +61,7 @@ public class Step00Streams implements Step00Interface {
 
         Stream<String> stream = STREAM_UOMINI;
         Stream<String> inizianoPerC = stream.filter(predicate);
-        String risultato = inizianoPerC.collect(PUNTO_E_SPAZIO);
+        String risultato = inizianoPerC.collect(VIRGOLA_E_SPAZIO);
 
         return risultato;
     }
@@ -98,7 +102,7 @@ public class Step00Streams implements Step00Interface {
     public String ordinamentoEStampa() {
         Stream<String> stream = STREAM_UOMINI;
         Stream<String> ordinati = stream.sorted();
-        String risultato = ordinati.collect(PUNTO_E_SPAZIO);
+        String risultato = ordinati.collect(VIRGOLA_E_SPAZIO);
         return risultato;
     }
 
@@ -123,7 +127,7 @@ public class Step00Streams implements Step00Interface {
     @Override
     public String unione() {
         Stream<String> stream = STREAM_UOMINI;
-        String intervallati = stream.collect(PUNTO_E_SPAZIO);
+        String intervallati = stream.collect(VIRGOLA_E_SPAZIO);
         return intervallati;
     }
 
@@ -154,7 +158,7 @@ public class Step00Streams implements Step00Interface {
         Stream<String> stream = STREAM_DONNE;
         Stream<Integer> lunghezze = stream.map(calcolaLunghezza);
         Stream<String> lunghezzeStringa = lunghezze.map(DA_INTERO_A_STRINGA);
-        String risultato = lunghezzeStringa.collect(PUNTO_E_SPAZIO);
+        String risultato = lunghezzeStringa.collect(VIRGOLA_E_SPAZIO);
 
         return risultato;
     }
@@ -166,7 +170,7 @@ public class Step00Streams implements Step00Interface {
 
         Stream<String> stream = STREAM_DONNE;
         Stream<String> iniziali = stream.map(prendiIniziale);
-        String risultato = iniziali.collect(PUNTO_E_SPAZIO);
+        String risultato = iniziali.collect(VIRGOLA_E_SPAZIO);
 
         return risultato;
     }
