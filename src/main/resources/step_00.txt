@@ -1,14 +1,17 @@
-a. Stampare 1,2,3
-b. Stampare i numeri pari tra 1 e 10
-c. Stampare i multipli di 7 tra 1 e 100
-d. Da "Tizio", "Caio" e "Sempronio" stampare quelli che cominciano per "C"
+L'elenco degli uomini è "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio"
+L'elenco delle donne è "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara"
+
+a. Restituire 1,2,3
+b. Restituire i numeri pari tra 1 e 10
+c. Restituire i multipli di 7 tra 1 e 100
+d. Dall'elenco degli uomini, restituire quelli che cominciano per "C"
 e. Calcolare la media dei multipli di 8 compresi tra 1 e 100
 f. Calcolare la somma dei multipli di 6 compresi tra 1 e 100
-g. Da "Tizio", "Caio" e "Sempronio" ordinarli e stamparli.
-h. Da "Tizio", "Caio" e "Sempronio" ordinare e restituire come lista, per stamparli successivamente.
-i. Tra i numeri da 1 a 100 trovarne uno qualunque divisibile per 41 e stamparlo (usare findAny)
-j. Da "Tizio", "Caio" e "Sempronio" produce la stringa "Tizio, Caio, Sempronio" (Usare Collectors.joining)
-k. Da "Carlo", "Mario", "Alberto" crea un Set
-l. Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" raggruppare per la lunghezza del nome (Collector.groupingBy)
-m. Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le lunghezze dei loro nomi
-n. Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le iniziali dei loro nomi
+g. Dall'elenco degli uomini, ordinarli alfabeticamente e restituire.
+h. Dall'elenco degli uomini, ordinare alfabeticamente e restituire come lista, per restituirli successivamente.
+i. Tra i numeri da 1 a 100 trovarne uno qualunque divisibile per 41 e stamparlo
+j. Dall'elenco degli uomini, produrre la stringa che li contiene intervallati da virgola e spazio
+k. Dall'elenco degli uomini, creare un insieme
+l. Dall'elenco delle donne, raggruppare per la lunghezza del nome
+m. Dall'elenco delle donne, stampare solamente le lunghezze dei loro nomi
+n. Dall'elenco delle donne, stampare solamente le iniziali dei loro nomi
