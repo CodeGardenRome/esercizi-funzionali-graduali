@@ -1,0 +1,24 @@
+{
+  "name": "lambda-roma/incremental-katas",
+  "type": "tutorial",
+  "require-dev": {
+    "phpspec/phpspec": "^3.0",
+    "phpspec/nyan-formatters": "^2.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "LambdaRoma\\": "src/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Federico Caprari",
+      "email": "korsmakolnikov@gmail.com"
+    }
+  ],
+  "require": {}
+}

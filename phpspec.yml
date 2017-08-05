@@ -1,0 +1,12 @@
+extensions:
+    PhpSpec\NyanFormattersExtension\Extension: ~
+
+formatter.name: nyan.dino
+
+suites:
+    autoload_suite:
+        namespace: LambdaRoma
+        src_path: src/
+        spec_path: src/
+
+stop_on_failure: true

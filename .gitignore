@@ -8,3 +8,7 @@ buildNumber.properties
 /incremental-katas-jvm-langs.iml
 /project/build.properties
 /incremental-katas-jvm-langs.ipr
+
+/vendor/
+.DS_Store
+bin/
