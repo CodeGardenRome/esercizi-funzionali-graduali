@@ -12,4 +12,9 @@ class UnoImperativoSpec extends ObjectBehavior
     {
         $this->shouldHaveType(UnoImperativo::class);
     }
+
+    function it_should_return_123()
+    {
+        $this->print123()->shouldBe("1, 2, 3");
+    }
 }
