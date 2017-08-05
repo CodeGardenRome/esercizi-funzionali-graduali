@@ -17,4 +17,14 @@ class UnoImperativoSpec extends ObjectBehavior
     {
         $this->print123()->shouldBe("1, 2, 3");
     }
+
+    function it_should_return_even_numbers()
+    {
+        $this->evenNumbers()->shouldBe("2, 4, 6, 8, 10");
+    }
+
+    function it_should_find_seven_multiple()
+    {
+        $this->sevenMultiple()->shouldBe("7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98");
+    }
 }
