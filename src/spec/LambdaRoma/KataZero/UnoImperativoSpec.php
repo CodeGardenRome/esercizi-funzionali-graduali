@@ -27,4 +27,11 @@ class UnoImperativoSpec extends ObjectBehavior
     {
         $this->sevenMultiple()->shouldBe("7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98");
     }
+
+    function it_should_return_c_names()
+    {
+        $men = ["Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio"];
+
+        $this->cMen($men, "c")->shouldBe("Caio, Calpurnio");
+    }
 }

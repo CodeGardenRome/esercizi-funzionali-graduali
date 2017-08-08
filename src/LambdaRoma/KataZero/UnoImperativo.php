@@ -11,12 +11,12 @@ class UnoImperativo
     const COMMA = ", ";
 
     /**
-     * @param array $numbers
+     * @param array $array
      * @return string
      */
-    private function format(array $numbers)
+    private function format(array $array)
     {
-        return implode(self::COMMA, $numbers);
+        return implode(self::COMMA, $array);
     }
 
     /**
@@ -56,12 +56,32 @@ class UnoImperativo
         return $this->format($out);
     }
 
+    /**
+     * @return string
+     */
     public function sevenMultiple()
     {
         $out = [];
         for($i = 1; $i <= 100; $i++) {
             if($i % 7 == 0) {
                 array_push($out, $i);
+            }
+        }
+
+        return $this->format($out);
+    }
+
+    /**
+     * @param $names
+     * @param string $disc
+     * @return string
+     */
+    public function cMen($names, $disc = "c")
+    {
+        $out = [];
+        foreach ($names as $name) {
+            if($disc === strtolower($name[0])) {
+                array_push($out, $name);
             }
         }
 
