@@ -9,6 +9,8 @@ namespace LambdaRoma\KataZero;
 class UnoImperativo
 {
     const COMMA = ", ";
+    const LOWER = 1;
+    const HIGHER = 100;
 
     /**
      * @param array $array
@@ -34,7 +36,7 @@ class UnoImperativo
     public function print123()
     {
         $out = [];
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = self::LOWER; $i <= 3; $i++) {
             array_push($out, $i);
         }
 
@@ -47,7 +49,7 @@ class UnoImperativo
     public function evenNumbers()
     {
         $out = [];
-        for($i = 1; $i <= 10; $i++) {
+        for($i = self::LOWER; $i <= 10; $i++) {
             if($this->even($i)) {
                 array_push($out, $i);
             }
@@ -62,7 +64,7 @@ class UnoImperativo
     public function sevenMultiple()
     {
         $out = [];
-        for($i = 1; $i <= 100; $i++) {
+        for($i = self::LOWER; $i <= self::HIGHER; $i++) {
             if($i % 7 == 0) {
                 array_push($out, $i);
             }
@@ -86,5 +88,26 @@ class UnoImperativo
         }
 
         return $this->format($out);
+    }
+
+    /**
+     * @param int $multiple
+     * @return float|int
+     */
+    public function averageOfMultiple($multiple = 8)
+    {
+        $multiples = [];
+        for($i = self::LOWER; $i <= self::HIGHER; $i++) {
+            if($i % $multiple == 0) {
+                array_push($multiples, $i);
+            }
+        }
+
+        $out = 0;
+        for($i = 0; $i < sizeof($multiples); $i++) {
+            $out += $multiples[$i];
+        }
+
+        return $out / $i;
     }
 }

@@ -34,4 +34,14 @@ class UnoImperativoSpec extends ObjectBehavior
 
         $this->cMen($men, "c")->shouldBe("Caio, Calpurnio");
     }
+
+    function it_should_return_average_of_eight_multiples()
+    {
+        $this->averageOfMultiple(8)->shouldBe(52);
+    }
+
+    function it_should_return_average_of_six_multiples()
+    {
+        $this->averageOfMultiple(6)->shouldBe(51);
+    }
 }
