@@ -9,8 +9,6 @@ val scalazVersion = "7.2.10"
 
 
 libraryDependencies ++= Seq(
-	"io.javaslang"   % "javaslang"   % javaslangVersion,
 	"org.scalaz"    %% "scalaz-core" % scalazVersion,
-	"junit"          % "junit"       % "4.12"   % "test",
 	"org.scalatest" %% "scalatest"   % "3.0.1"  % "test"
 )
