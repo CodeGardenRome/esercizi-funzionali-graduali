@@ -10,7 +10,7 @@ class Step02Spec extends WordSpec with Matchers {
 
 	"The imperative censorship function" should {
 		"censor a list of provided words" in {
-			Step02ScalaImperative(censored)(input) shouldBe expected
+			new Step02ScalaImperative.Censor(censored)(input) shouldBe expected
 		}
 	}
 
