@@ -14,7 +14,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:0.15"
+    classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:0.16"
   }
 }
 
