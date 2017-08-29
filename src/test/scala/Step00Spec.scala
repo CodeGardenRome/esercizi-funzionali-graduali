@@ -4,7 +4,7 @@ import org.scalatest._
 
 class Step00Spec extends WordSpec with Matchers {
 
-  val men = Array("Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio")
+  val men = Array("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio")
   val women = Array("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara")
 
   "The solution" when {
@@ -12,7 +12,7 @@ class Step00Spec extends WordSpec with Matchers {
     "using the imperative approach" should {
 
       "produce 1, 2, 3" in {
-        
+
       }
 
       "produce all even numbers between 1 and 10" in {
