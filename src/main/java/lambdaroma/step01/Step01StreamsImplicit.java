@@ -1,4 +1,4 @@
-package io.evilcorp.step01;
+package lambdaroma.step01;
 
 import java.util.Arrays;
 import java.util.function.UnaryOperator;

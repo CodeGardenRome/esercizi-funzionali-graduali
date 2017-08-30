@@ -1,5 +1,6 @@
 package io.evilcorp.step01
 
+import lambdaroma.step01.{Step01Imperative, Step01StreamsExplicit, Step01StreamsImplicit, Step01Vavr}
 import org.scalatest._
 
 class Step01Spec extends WordSpec with Matchers {

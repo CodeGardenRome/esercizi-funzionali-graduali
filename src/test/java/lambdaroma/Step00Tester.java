@@ -1,25 +1,25 @@
-package io.evilcorp;
+package lambdaroma;
 
-import io.evilcorp.step00.Step00Imperative;
-import io.evilcorp.step00.Step00Interface;
-import io.evilcorp.step00.Step00StreamsExplicit;
+import lambdaroma.katazero.KataZeroImperativo;
+import lambdaroma.katazero.KataZeroInterfaccia;
+import lambdaroma.katazero.KataZeroStreamEspliciti;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class Step00Tester {
 
-    public void verifica(Step00Interface daVerificare){
-        Assert.assertEquals("1, 2, 3", daVerificare.stampa123());
+    public void verifica(KataZeroInterfaccia daVerificare){
+        Assert.assertEquals("1, 2, 3", daVerificare.kataZeroA());
     }
 
     @Test
     public void verificaImperativo(){
-        verifica(new Step00Imperative());
+        verifica(new KataZeroImperativo());
     }
 
     @Test
     public void verificaStream(){
-        verifica(new Step00StreamsExplicit());
+        verifica(new KataZeroStreamEspliciti());
     }
 
 }

@@ -1,4 +1,4 @@
-package io.evilcorp.step03;
+package lambdaroma.step03;
 
 import java.util.Arrays;
 import java.util.Collections;

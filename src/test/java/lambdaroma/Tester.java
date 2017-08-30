@@ -1,13 +1,13 @@
-package io.evilcorp;
+package lambdaroma;
 
-import io.evilcorp.step01.Step01Imperative;
-import io.evilcorp.step01.Step01Vavr;
-import io.evilcorp.step01.Step01StreamsExplicit;
-import io.evilcorp.step01.Step01StreamsImplicit;
-import io.evilcorp.step02.Step02Imperative;
-import io.evilcorp.step02.Step02Streams;
-import io.evilcorp.step03.Step03Imperative;
-import io.evilcorp.step03.Step03Streams;
+import lambdaroma.step01.Step01Imperative;
+import lambdaroma.step01.Step01Vavr;
+import lambdaroma.step01.Step01StreamsExplicit;
+import lambdaroma.step01.Step01StreamsImplicit;
+import lambdaroma.step02.Step02Imperative;
+import lambdaroma.step02.Step02Streams;
+import lambdaroma.step03.Step03Imperative;
+import lambdaroma.step03.Step03Streams;
 import org.junit.Assert;
 import org.junit.Test;
 

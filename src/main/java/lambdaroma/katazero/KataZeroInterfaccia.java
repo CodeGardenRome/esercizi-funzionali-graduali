@@ -1,49 +1,36 @@
-package io.evilcorp.step00;
+package lambdaroma.katazero;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public interface Step00Interface {
+public interface KataZeroInterfaccia {
 
 
 
-    // Stampare 1,2,3
-    String stampa123();
+    List<Integer> kataZeroA();
 
-    // Stampare i numeri pari tra 1 e 10
-    String pariMinoriCento();
+    List<Integer> kataZeroB();
 
-    // Stampare i multipli di 7 tra 1 e 100
-    String multipliSetteMinoriCento();
+    List<Integer> kataZeroC();
 
-    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" stampare quelli che cominciano per "C"
-    String inizianoPerC();
+    List<String> kataZeroD();
 
-    // Calcolare la media dei multipli di 8 compresi tra 1 e 100
-    Double mediaMultipliOtto();
+    Double kataZeroE();
 
-    // Calcolare la somma dei multipli di 6 compresi tra 1 e 100
-    int sommaMultipliSei();
+    int kataZeroF();
 
-    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" ordinarli e stamparli.
-    String ordinamentoEStampa();
+    List<String> kataZeroG();
 
-    // Tra i numeri da 1 a 100 trovarne uno qualunque divisibile per 41 e stamparlo (usare findAny)
-    int divisibileQuarantuno();
+    int kataZeroH();
 
-    // Da "Tizio", "Caio", "Sempronio", "Mevio", "Filano" e "Calpurnio" produrre la stringa "Tizio, Caio, Sempronio"
-    String unione();
+    String kataZeroI();
 
-    // Da "Carlo", "Mario", "Alberto" creare un insieme
-    Set<String> daStringheAInsieme();
+    Set<String> kataZeroJ();
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" raggruppare per la lunghezza del nome
-    Map<Integer,List<String>> raggruppareLunghezzaNome();
+    Map<Integer,List<String>> kataZeroK();
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le lunghezze dei loro nomi
-    String lunghezzeNomi();
+    String kataZeroL();
 
-    // Da "Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara" stampare solamente le iniziali dei loro nomi
-    String inizialiNomi();
+    String kataZeroM();
 }
