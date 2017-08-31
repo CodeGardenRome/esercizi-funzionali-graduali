@@ -1,7 +1,7 @@
 language: scala
 scala:
    - 2.12.1
-   
+
 # safelist
 branches:
   only:
@@ -9,3 +9,4 @@ branches:
 
 env:
   - TEST_DIR=java
+script: cd java && ./gradlew check
