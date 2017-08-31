@@ -14,3 +14,7 @@ buildNumber.properties
 /.settings/
 /project/
 /out/
+
+/vendor/
+.DS_Store
+bin/
