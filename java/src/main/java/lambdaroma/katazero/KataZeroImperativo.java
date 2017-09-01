@@ -4,8 +4,7 @@ import java.util.*;
 
 public class KataZeroImperativo implements KataZeroInterfaccia {
 
-    private static final List<String> ELENCO_UOMINI = Arrays.asList("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
-    private static final List<String> ELENCO_DONNE = Arrays.asList("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
+
 
     @Override
     public List<Integer> kataZeroA(){
@@ -19,7 +18,7 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
     @Override
     public List<Integer> kataZeroB(){
         List<Integer> lista = new ArrayList<>();
-        for(Integer i=1; i<=100; i+=2){
+        for(Integer i=2; i<=10; i+=2){
             lista.add(i);
         }
         return lista;
@@ -28,7 +27,7 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
     @Override
     public List<Integer> kataZeroC(){
         List<Integer> lista = new ArrayList<>();
-        for(Integer i=1; i<=100; i+=7){
+        for(Integer i=0; i<=100; i+=7){
             lista.add(i);
         }
         return lista;

@@ -9,11 +9,12 @@ import java.util.stream.Stream;
 
 public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
 
-    private static final Stream<String> STREAM_UOMINI = Stream.of("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
-    private static final Stream<String> STREAM_DONNE = Stream.of("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
+    //private static final Stream<String> STREAM_UOMINI = Stream.of("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
+    //private static final Stream<String> STREAM_DONNE = Stream.of("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
 
     // Filtra in modo che rimangano solo i numero minori di 100
-    private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer < 100;
+    private static final Predicate<Integer> MINORE_DI_DIECI = (Integer integer) -> integer <= 10;
+    private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer <= 100;
     private static final Function<Integer,String> DA_INTERO_A_STRINGA = (Integer integer) -> integer.toString();
     private static final Collector<CharSequence, ?, String> VIRGOLA_E_SPAZIO = Collectors.joining(", ");
 
@@ -27,8 +28,8 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public List<Integer> kataZeroB() {
         UnaryOperator<Integer> unaryOperator = (Integer integer) -> integer + 2;
 
-        Stream<Integer> streamPari = Stream.iterate(0, unaryOperator);
-        Stream<Integer> pariEMinoriCento = streamPari.filter( MINORE_DI_CENTO );
+        Stream<Integer> streamPari = Stream.iterate(2, unaryOperator).limit(50l);
+        Stream<Integer> pariEMinoriCento = streamPari.filter(MINORE_DI_DIECI);
         return pariEMinoriCento.collect(Collectors.toList());
 
     }
@@ -38,8 +39,8 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public List<Integer> kataZeroC() {
         UnaryOperator<Integer> unaryOperator = (Integer integer) -> integer + 7;
 
-        Stream<Integer> multipliSette = Stream.iterate(0, unaryOperator);
-        Stream<Integer> multipliSetteMinoriCento = multipliSette.filter( MINORE_DI_CENTO );
+        Stream<Integer> multipliSette = Stream.iterate(0, unaryOperator).limit(50l);
+        Stream<Integer> multipliSetteMinoriCento = multipliSette.filter(MINORE_DI_CENTO);
         return multipliSetteMinoriCento.collect(Collectors.toList());
     }
 
@@ -47,7 +48,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public List<String> kataZeroD() {
         Predicate<String> predicate = (String string) -> string.startsWith("C");
 
-        Stream<String> stream = STREAM_UOMINI;
+        Stream<String> stream = ELENCO_UOMINI.stream();
         Stream<String> inizianoPerC = stream.filter(predicate);
         return inizianoPerC.collect(Collectors.toList());
     }
@@ -57,7 +58,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
         IntUnaryOperator multipliDiOtto = (int i) -> i + 8;
         IntPredicate verificaMinoriDiCento = (int i) -> i < 100;
 
-        IntStream intStream = IntStream.iterate(0, multipliDiOtto);
+        IntStream intStream = IntStream.iterate(0, multipliDiOtto).limit(50l);
         IntStream minoriDiCento = intStream.filter(verificaMinoriDiCento);
         OptionalDouble optionalDouble = minoriDiCento.average();
 
@@ -74,7 +75,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
         IntUnaryOperator intUnaryOperator = (int i) -> i + 6;
         IntPredicate intPredicate = (int i) -> i < 100;
 
-        IntStream intStream = IntStream.iterate(0, intUnaryOperator);
+        IntStream intStream = IntStream.iterate(0, intUnaryOperator).limit(50l);
         IntStream minoriDiCento = intStream.filter(intPredicate);
         int somma = minoriDiCento.sum();
 
@@ -83,7 +84,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
 
     @Override
     public List<String> kataZeroG() {
-        Stream<String> stream = STREAM_UOMINI;
+        Stream<String> stream = ELENCO_UOMINI.stream();
         Stream<String> ordinati = stream.sorted();
         return ordinati.collect(Collectors.toList());
     }
@@ -106,14 +107,14 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
 
     @Override
     public String kataZeroI() {
-        Stream<String> stream = STREAM_UOMINI;
+        Stream<String> stream = ELENCO_UOMINI.stream();
         String intervallati = stream.collect(VIRGOLA_E_SPAZIO);
         return intervallati;
     }
 
     @Override
     public Set<String> kataZeroJ() {
-        Stream<String> stream = STREAM_UOMINI;
+        Stream<String> stream = ELENCO_UOMINI.stream();
         Set<String> insieme = stream.collect(Collectors.toSet());
         return insieme;
     }
@@ -122,7 +123,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public Map<Integer, List<String>> kataZeroK() {
         Function<String, Integer> calcolaLunghezza = (String string) -> string.length();
 
-        Stream<String> stream = STREAM_DONNE;
+        Stream<String> stream = ELENCO_DONNE.stream();
         Map<Integer, List<String>> map = stream.collect(Collectors.groupingBy(calcolaLunghezza));
 
         return map;
@@ -132,7 +133,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public List<Integer> kataZeroL() {
         Function<String, Integer> calcolaLunghezza = (String string) -> string.length();
 
-        Stream<String> stream = STREAM_DONNE;
+        Stream<String> stream = ELENCO_DONNE.stream();
         Stream<Integer> lunghezze = stream.map(calcolaLunghezza);
         return lunghezze.collect(Collectors.toList());
     }
@@ -141,7 +142,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public List<String> kataZeroM() {
         Function<String,String> prendiIniziale = (String string) -> string.substring(0,1);
 
-        Stream<String> stream = STREAM_DONNE;
+        Stream<String> stream = ELENCO_DONNE.stream();
         Stream<String> iniziali = stream.map(prendiIniziale);
         return iniziali.collect(Collectors.toList());
     }
