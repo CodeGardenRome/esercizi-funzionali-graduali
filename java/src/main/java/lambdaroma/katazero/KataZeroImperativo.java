@@ -122,25 +122,24 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
 
 
     @Override
-    public String kataZeroL(){
+    public List<Integer> kataZeroL(){
         List<String> donne = ELENCO_DONNE;
-        StringJoiner joiner = new StringJoiner(", ");
+        List<Integer> list = new ArrayList<>();
         for(String donna : donne){
-            Integer lunghezza = donna.length();
-            joiner.add(lunghezza.toString());
+            list.add( donna.length() );
         }
-        return joiner.toString();
+        return list;
     }
 
     @Override
-    public String kataZeroM(){
+    public List<String> kataZeroM(){
         List<String> donne = ELENCO_DONNE;
-        StringJoiner joiner = new StringJoiner(", ");
+        List<String> list = new ArrayList<>();
         for(String donna : donne){
             String iniziale = donna.substring(0,1);
-            joiner.add(iniziale);
+            list.add(iniziale);
         }
-        return joiner.toString();
+        return list;
     }
 
 }

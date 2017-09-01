@@ -129,25 +129,20 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     }
 
     @Override
-    public String kataZeroL() {
+    public List<Integer> kataZeroL() {
         Function<String, Integer> calcolaLunghezza = (String string) -> string.length();
 
         Stream<String> stream = STREAM_DONNE;
         Stream<Integer> lunghezze = stream.map(calcolaLunghezza);
-        Stream<String> lunghezzeStringa = lunghezze.map(DA_INTERO_A_STRINGA);
-        String risultato = lunghezzeStringa.collect(VIRGOLA_E_SPAZIO);
-
-        return risultato;
+        return lunghezze.collect(Collectors.toList());
     }
 
     @Override
-    public String kataZeroM() {
+    public List<String> kataZeroM() {
         Function<String,String> prendiIniziale = (String string) -> string.substring(0,1);
 
         Stream<String> stream = STREAM_DONNE;
         Stream<String> iniziali = stream.map(prendiIniziale);
-        String risultato = iniziali.collect(VIRGOLA_E_SPAZIO);
-
-        return risultato;
+        return iniziali.collect(Collectors.toList());
     }
 }

@@ -30,7 +30,7 @@ public interface KataZeroInterfaccia {
 
     Map<Integer,List<String>> kataZeroK();
 
-    String kataZeroL();
+    List<Integer> kataZeroL();
 
-    String kataZeroM();
+    List<String> kataZeroM();
 }
