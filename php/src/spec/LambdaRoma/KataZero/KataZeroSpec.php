@@ -89,8 +89,6 @@ class KataZeroSpec extends ObjectBehavior
         $this->kataZeroL($this->women)->shouldBe([4, 5, 6, 6, 4, 5, 4]);
     }
 
-    //m. Dall'elenco delle donne, stampare solamente le iniziali dei loro nomi
-    //    private $women = ["Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara"];
     function it_should_return_list_of_womens_initials()
     {
         $this->kataZeroM($this->women)->shouldBe(['A', 'C', 'A', 'C', 'E', 'M', 'S']);
