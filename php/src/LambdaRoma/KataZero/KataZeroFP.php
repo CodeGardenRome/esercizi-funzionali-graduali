@@ -73,7 +73,10 @@ class KataZeroFP
             }, 0) / $generator->getReturn();
     }
 
-    public function kataZeroE2()
+    /**
+     * @return int
+     */
+    public function kataZeroE2(): int
     {
         $r = function (int $i, int $limit, int $acc = 0, int $counter = 0) use (&$r) {
             $curr = $counter * $i;
@@ -85,10 +88,19 @@ class KataZeroFP
         return $r(8, 100);
     }
 
-    public function kataZeroF()
+    /**
+     * @return int
+     */
+    public function kataZeroF(): int
     {
-        // TODO: write logic here
+        $g = function (int $limit, int $i = 6) {
+            while ($i <= $limit) {
+                yield $i;
+                $i += 6;
+            }
+        };
+        return ImmArray::fromItems($g(100))->reduce(function ($last, $curr) {
+            return $last + $curr;
+        }, 0);
     }
-
-
 }
