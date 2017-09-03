@@ -11,7 +11,7 @@ class KataZero
     /**
      * @return array
      */
-    public function kataZeroA()
+    public function kataZeroA(): array
     {
         $out = [];
         for ($i = 1; $i <= 3; $i++) {
@@ -24,7 +24,7 @@ class KataZero
     /**
      * @return array
      */
-    public function kataZeroB()
+    public function kataZeroB(): array
     {
         $out = [];
         for ($i = 0; $i <= 10; $i += 2) {
@@ -36,7 +36,7 @@ class KataZero
     /**
      * @return array
      */
-    public function kataZeroC()
+    public function kataZeroC(): array
     {
         $out = [];
         for ($i = 7; $i <= 100; $i += 7) {
@@ -49,7 +49,7 @@ class KataZero
      * @param $names
      * @return array
      */
-    public function kataZeroD($names)
+    public function kataZeroD($names): array
     {
         $out = [];
         foreach ($names as $name) {
@@ -61,9 +61,9 @@ class KataZero
     }
 
     /**
-     * @return float|int
+     * @return int
      */
-    public function kataZeroE()
+    public function kataZeroE(): int
     {
         $multiples = 0;
         $out = 0;
@@ -77,7 +77,7 @@ class KataZero
     /**
      * @return int
      */
-    public function kataZeroF()
+    public function kataZeroF(): int
     {
         $sum = 0;
         for ($i = 6; $i <= 100; $i += 6) {
@@ -88,9 +88,9 @@ class KataZero
 
     /**
      * @param $menNames
-     * @return bool
+     * @return array
      */
-    public function kataZeroG($menNames)
+    public function kataZeroG(array $menNames): array
     {
         sort($menNames);
         return $menNames;
@@ -99,7 +99,7 @@ class KataZero
     /**
      * @return int
      */
-    public function kataZeroH()
+    public function kataZeroH(): int
     {
         $out = [];
         for ($i = 41; $i <= 1000; $i += 41) {
@@ -113,7 +113,7 @@ class KataZero
      * @param $menNames
      * @return string
      */
-    public function kataZeroI($menNames)
+    public function kataZeroI(array $menNames): string
     {
         return implode(", ", $menNames);
     }
@@ -122,7 +122,7 @@ class KataZero
      * @param $menNames
      * @return array
      */
-    public function kataZeroJ($menNames)
+    public function kataZeroJ(array $menNames): array
     {
         return array_unique($menNames);
     }
@@ -131,7 +131,7 @@ class KataZero
      * @param $womenNames
      * @return array
      */
-    public function kataZeroK($womenNames)
+    public function kataZeroK(array $womenNames): array
     {
         $out = [];
         foreach ($womenNames as $name) {
@@ -140,6 +140,32 @@ class KataZero
                 continue;
             }
             $out[strlen($name)] = [$name];
+        }
+        return $out;
+    }
+
+    /**
+     * @param array $womenNames
+     * @return array
+     */
+    public function kataZeroL(array $womenNames): array
+    {
+        $out = [];
+        foreach ($womenNames as $name) {
+            array_push($out, strlen($name));
+        }
+        return $out;
+    }
+
+    /**
+     * @param array $womenNames
+     * @return array
+     */
+    public function kataZeroM(array $womenNames): array
+    {
+        $out = [];
+        foreach ($womenNames as $name) {
+            array_push($out, $name[0]);
         }
         return $out;
     }
