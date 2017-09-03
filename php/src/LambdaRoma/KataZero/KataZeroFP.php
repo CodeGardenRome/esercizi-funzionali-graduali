@@ -9,7 +9,7 @@ class KataZeroFP
     /**
      * @return ImmArray
      */
-    public function kataZeroA()
+    public function kataZeroA(): ImmArray
     {
         return ImmArray::fromArray(range(1, 3));
     }
@@ -17,7 +17,7 @@ class KataZeroFP
     /**
      * @return ImmArray
      */
-    public function kataZeroB()
+    public function kataZeroB(): ImmArray
     {
         $g = function (int $i, int $limit) {
             while ($i <= $limit) {
@@ -31,7 +31,7 @@ class KataZeroFP
     /**
      * @return ImmArray
      */
-    public function kataZeroC()
+    public function kataZeroC(): ImmArray
     {
         $g = function (int $limit, int $i = 7) {
             while ($i <= $limit) {
@@ -46,14 +46,17 @@ class KataZeroFP
      * @param $menNames
      * @return ImmArray
      */
-    public function kataZeroD($menNames)
+    public function kataZeroD($menNames): ImmArray
     {
         return ImmArray::fromArray($menNames)->filter(function ($i) {
             return strtolower($i[0]) === 'c';
         });
     }
 
-    public function kataZeroE()
+    /**
+     * @return float|int
+     */
+    public function kataZeroE(): int
     {
         $lambda = function (int $limit, int $i = 8) {
             $counter = 0;
@@ -72,11 +75,11 @@ class KataZeroFP
 
     public function kataZeroE2()
     {
-        $r = function (int $i, int $limit, int $sum = 8, int $counter = 0) use (&$r) {
-            if ($sum >= $limit) return $sum / $counter;
-            $sum += $i + $sum;
-            $counter++;
-            return $r($i, $limit, $sum, $counter);
+        $r = function (int $i, int $limit, int $acc = 0, int $counter = 0) use (&$r) {
+            $curr = $counter * $i;
+            return $counter * $i > $limit - $i
+                ? $acc / $counter
+                : $r($i, $limit, $acc + ($curr + $i), $counter + 1);
         };
 
         return $r(8, 100);

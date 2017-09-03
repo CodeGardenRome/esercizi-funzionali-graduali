@@ -41,6 +41,11 @@ class KataZeroFPSpec extends ObjectBehavior
         $this->kataZeroE()->shouldBe(52);
     }
 
+    function it_should_return_average_of_eight_multiples2()
+    {
+        $this->kataZeroE2()->shouldBe(52);
+    }
+
     function it_should_return_sum_of_six_multiples()
     {
         $this->kataZeroF()->shouldBe(816);
