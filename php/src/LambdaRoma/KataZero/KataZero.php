@@ -6,7 +6,7 @@ namespace LambdaRoma\KataZero;
  * Class UnoImperativo
  * @package LambdaRoma\KataZero
  */
-class UnoImperativo //todo cambia il nome
+class KataZero
 {
     /**
      * @return array
