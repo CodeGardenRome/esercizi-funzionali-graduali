@@ -65,13 +65,13 @@ class KataZero
      */
     public function kataZeroE(): int
     {
-        $multiples = 0;
+        $counter = 0;
         $out = 0;
         for ($i = 8; $i <= 100; $i += 8) {
-            $multiples++;
+            $counter++;
             $out += $i;
         }
-        return $out / $multiples;
+        return $out / $counter;
     }
 
     /**

@@ -1,3 +1,4 @@
 php/.idea/
 php/bin/
 php/vendor/
+.DS_Store
