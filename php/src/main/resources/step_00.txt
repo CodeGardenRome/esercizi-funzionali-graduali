@@ -15,4 +15,3 @@ j. Dall'elenco degli uomini, creare un insieme (set)
 k. Dall'elenco delle donne, restituisci una mappa in cui i nomi sono raggruppati per lunghezza
 l. Dall'elenco delle donne, stampare solamente le lunghezze dei loro nomi
 m. Dall'elenco delle donne, stampare solamente le iniziali dei loro nomi
-

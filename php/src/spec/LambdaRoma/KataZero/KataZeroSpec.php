@@ -2,18 +2,18 @@
 
 namespace spec\LambdaRoma\KataZero;
 
-use LambdaRoma\KataZero\UnoImperativo;
+use LambdaRoma\KataZero\KataZero;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class UnoImperativoSpec extends ObjectBehavior
+class KataZeroSpec extends ObjectBehavior
 {
     private $men = ["Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio"];
     private $women = ["Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara"];
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(UnoImperativo::class);
+        $this->shouldHaveType(KataZero::class);
     }
 
     function it_should_return_123()
@@ -84,4 +84,13 @@ class UnoImperativoSpec extends ObjectBehavior
         ]);
     }
 
+    function it_should_return_list_of_lengths_of_women_names()
+    {
+        $this->kataZeroL($this->women)->shouldBe([4, 5, 6, 6, 4, 5, 4]);
+    }
+
+    function it_should_return_list_of_womens_initials()
+    {
+        $this->kataZeroM($this->women)->shouldBe(['A', 'C', 'A', 'C', 'E', 'M', 'S']);
+    }
 }
