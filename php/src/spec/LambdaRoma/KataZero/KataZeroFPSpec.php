@@ -23,7 +23,7 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_even_numbers()
     {
-        $this->kataZeroB()->toArray()->shouldBe([0, 2, 4, 6, 8, 10]);
+        $this->kataZeroB()->shouldBe([0, 2, 4, 6, 8, 10]);
     }
 
     function it_should_find_seven_multiple()
@@ -48,12 +48,17 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_sum_of_six_multiples()
     {
-        $this->kataZeroF()->shouldBe(816);
+        $this->kataZeroF()->shouldBe(83166);
+    }
+
+    function it_should_return_sum_of_six_multiples2()
+    {
+        $this->kataZeroF2()->shouldBe(83166);
     }
 
     function it_should_order_men_names()
     {
-        $this->kataZeroG($this->men)->shouldBe(['Caio', 'Calpurnio', 'Filano', 'Mevio', 'Sempronio', 'Tizio']);
+        $this->kataZeroG($this->men)->toArray()->shouldBe(['Caio', 'Calpurnio', 'Filano', 'Mevio', 'Sempronio', 'Tizio']);
     }
 
     function getMatchers()
@@ -77,7 +82,9 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_a_set_of_men_names()
     {
-        $this->kataZeroJ($this->men)->shouldBe($this->men);
+        $this->kataZeroJ($this->men)->toArray()->shouldBe($this->men);
+        $this->shouldThrow(\Exception::class)->during('kataZeroJ2', [$this->men]);
+
     }
 
     function it_should_return_a_map_of_ordered_women_names()
@@ -91,11 +98,11 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_list_of_lengths_of_women_names()
     {
-        $this->kataZeroL($this->women)->shouldBe([4, 5, 6, 6, 4, 5, 4]);
+        $this->kataZeroL($this->women)->toArray()->shouldBe([4, 5, 6, 6, 4, 5, 4]);
     }
 
     function it_should_return_list_of_womens_initials()
     {
-        $this->kataZeroM($this->women)->shouldBe(['A', 'C', 'A', 'C', 'E', 'M', 'S']);
+        $this->kataZeroM($this->women)->toArray()->shouldBe(['A', 'C', 'A', 'C', 'E', 'M', 'S']);
     }
 }
