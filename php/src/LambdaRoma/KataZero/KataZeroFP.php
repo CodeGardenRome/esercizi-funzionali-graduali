@@ -156,7 +156,7 @@ class KataZeroFP
     }
 
     /**
-     * @param $womenNames
+     * @param array $womenNames
      * @return array
      */
     public function kataZeroK(array $womenNames): array
@@ -167,20 +167,16 @@ class KataZeroFP
         });
         $indexedWomenNames = ImmArray::fromArray(array_map(null, $ids->toArray(), $immutableWN->toArray()));
 
-        $lambda = function ($or, $acc) use (&$lambda) {
-            $first = array_shift($or);
-            if (!$first) return $acc;
-            $val = array_pop($first);
-            $key = array_pop($first);
-            if (isset($acc[$key]) && is_array($acc[$key])) {
-                array_push($acc[$key], $val);
-            } else {
-                $acc[$key] = [$val];
+        return $indexedWomenNames->reduce(function ($last, $curr) {
+            $key = array_shift($curr);
+            $val = array_shift($curr);
+            if(isset($last[$key]) && is_array($last[$key])) {
+                array_push($last[$key], $val);
+                return $last;
             }
-            return $lambda($or, $acc);
-        };
-
-        return $lambda($indexedWomenNames->toArray(), []);
+            $last[$key] = [$val];
+            return $last;
+        }, []);
     }
 
     /**
