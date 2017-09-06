@@ -47,7 +47,7 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
 
     @Override
     public Double kataZeroE(){
-        int numeroMultipli = 0;
+        double numeroMultipli = 0;
         double sommaMultipli = 0;
         for(int i=8; i<=100; i+=8){
             numeroMultipli++;
@@ -59,7 +59,7 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
     @Override
     public int kataZeroF(){
         int sommaMultipli = 0;
-        for(int i=6; i<=100; i+=6){
+        for(int i=6; i<=1000; i+=6){
             sommaMultipli += i;
         }
         return sommaMultipli;
@@ -67,8 +67,7 @@ public class KataZeroImperativo implements KataZeroInterfaccia {
 
     @Override
     public List<String> kataZeroG(){
-        List<String> uomini = new ArrayList<>();
-        Collections.copy(uomini, ELENCO_UOMINI);
+        List<String> uomini = new ArrayList<>(ELENCO_UOMINI);
         Collections.sort(uomini);
         return uomini;
     }

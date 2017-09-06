@@ -17,9 +17,8 @@ public class VerificaKataZero {
         assertEquals(Arrays.asList(2,4,6,8,10), daVerificare.kataZeroB());
         assertEquals(Arrays.asList(0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98), daVerificare.kataZeroC());
         assertEquals(Arrays.asList("Caio","Calpurnio"), daVerificare.kataZeroD());
-        // TODO verify why it is broken
-        assertEquals(new Double(48), daVerificare.kataZeroE());
-        assertEquals(816, daVerificare.kataZeroF());
+        assertEquals(new Double(52), daVerificare.kataZeroE());
+        assertEquals(83166, daVerificare.kataZeroF());
         assertEquals(Arrays.asList("Caio","Calpurnio","Filano", "Mevio", "Sempronio", "Tizio"),
                 daVerificare.kataZeroG());
         Assert.assertTrue(daVerificare.kataZeroH() % 41 == 0);

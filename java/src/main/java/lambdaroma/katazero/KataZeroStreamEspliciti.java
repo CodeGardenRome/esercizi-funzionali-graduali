@@ -2,20 +2,11 @@ package lambdaroma.katazero;
 
 import java.util.*;
 import java.util.function.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
-
-    //private static final Stream<String> STREAM_UOMINI = Stream.of("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio");
-    //private static final Stream<String> STREAM_DONNE = Stream.of("Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara");
-
-    // Filtra in modo che rimangano solo i numero minori di 100
     private static final Predicate<Integer> MINORE_DI_DIECI = (Integer integer) -> integer <= 10;
     private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer <= 100;
-    private static final Function<Integer,String> DA_INTERO_A_STRINGA = (Integer integer) -> integer.toString();
     private static final Collector<CharSequence, ?, String> VIRGOLA_E_SPAZIO = Collectors.joining(", ");
 
     @Override
@@ -55,11 +46,11 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
 
     @Override
     public Double kataZeroE() {
-        IntUnaryOperator multipliDiOtto = (int i) -> i + 8;
-        IntPredicate verificaMinoriDiCento = (int i) -> i < 100;
+        DoubleUnaryOperator multipliDiOtto = (double i) -> i + 8.0D;
+        DoublePredicate verificaMinoriDiCento = (double i) -> i < 100.0D;
 
-        IntStream intStream = IntStream.iterate(0, multipliDiOtto).limit(50l);
-        IntStream minoriDiCento = intStream.filter(verificaMinoriDiCento);
+        DoubleStream doubleStream = DoubleStream.iterate(8, multipliDiOtto).limit(100l);
+        DoubleStream minoriDiCento = doubleStream.filter(verificaMinoriDiCento);
         OptionalDouble optionalDouble = minoriDiCento.average();
 
         Double result = null;
@@ -73,11 +64,11 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     @Override
     public int kataZeroF() {
         IntUnaryOperator intUnaryOperator = (int i) -> i + 6;
-        IntPredicate intPredicate = (int i) -> i < 100;
+        IntPredicate intPredicate = (int i) -> i < 1000;
 
-        IntStream intStream = IntStream.iterate(0, intUnaryOperator).limit(50l);
-        IntStream minoriDiCento = intStream.filter(intPredicate);
-        int somma = minoriDiCento.sum();
+        IntStream intStream = IntStream.iterate(0, intUnaryOperator).limit(1000l);
+        IntStream minoriDiMille = intStream.filter(intPredicate);
+        int somma = minoriDiMille.sum();
 
         return somma;
     }
@@ -93,7 +84,7 @@ public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     public int kataZeroH() {
         IntPredicate divisibileQuarantuno = (int i) -> i % 41 == 0;
 
-        IntStream intStream = IntStream.range(0,100).parallel();
+        IntStream intStream = IntStream.range(0,1000).parallel();
         IntStream divisibili = intStream.filter(divisibileQuarantuno);
         OptionalInt optionalInt = divisibili.findAny();
 
