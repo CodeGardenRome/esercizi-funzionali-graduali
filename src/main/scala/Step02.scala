@@ -1,12 +1,17 @@
 package io.evilcorp.step02
 
 object Step02ScalaImperative {
-	def apply(censored: Set[String])(text: String): String = {
-		var result = text
-		for (verboten <- censored) {
-			result = result.replaceAll(verboten, fillString('X', verboten.length))
+
+	class Censor(censored: Set[String]) {
+		
+		def apply(text: String): String = {
+			var result = text
+			for (verboten <- censored) {
+				result = result.replaceAll(verboten, fillString('X', verboten.length))
+			}
+			result
 		}
-		result
+
 	}
 		
 	//This is for illustrative purpose
@@ -23,6 +28,7 @@ object Step02ScalaImperative {
 }
 
 object Step02ScalaFunctional {
+  //we get the equivalent of an object with a curried closure
 	def apply(censored: Set[String])(text: String): String = 
 		censored.foldLeft(text) {
 			(txt, verboten) => txt.replaceAll(verboten, Marked(verboten))

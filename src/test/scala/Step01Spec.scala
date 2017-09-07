@@ -19,23 +19,4 @@ class Step01Spec extends WordSpec with Matchers {
 		}
 	}
 
-	"The java imperative censorship function" should {
-		"censor nice words" in {
-			new Step01Imperative()(input) shouldBe expected
-		}
-	}
-
-	"The java stream censorship functions" should {
-		"censor nice words" in {
-			new Step01StreamsExplicit()(input) shouldBe expected
-			new Step01StreamsImplicit()(input) shouldBe expected
-		}
-	}
-
-	"The javaslang censorship function" should {
-		"censor nice words" in {
-			new Step01Javaslang()(input) shouldBe expected
-		}
-	}
-
 }
