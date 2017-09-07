@@ -23,7 +23,7 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_even_numbers()
     {
-        $this->kataZeroB()->shouldBe([0, 2, 4, 6, 8, 10]);
+        $this->kataZeroB()->toArray()->shouldBe([0, 2, 4, 6, 8, 10]);
     }
 
     function it_should_find_seven_multiple()
@@ -39,11 +39,9 @@ class KataZeroFPSpec extends ObjectBehavior
     function it_should_return_average_of_eight_multiples()
     {
         $this->kataZeroE()->shouldBe(52);
-    }
-
-    function it_should_return_average_of_eight_multiples2()
-    {
         $this->kataZeroE2()->shouldBe(52);
+        $this->kataZeroE3()->shouldBe(52);
+
     }
 
     function it_should_return_sum_of_six_multiples()

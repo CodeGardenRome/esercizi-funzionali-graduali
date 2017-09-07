@@ -15,24 +15,11 @@ class KataZeroFP
     }
 
     /**
-     * @return array
-     */
-    public function kataZeroB(): array
-    {
-        return array_values(array_filter(range(0, 10), function ($i) {
-            return $i % 2 === 0;
-        }));
-    }
-
-    /**
-     * @param $menNames
      * @return ImmArray
      */
-    public function kataZeroD($menNames): ImmArray
+    public function kataZeroB(): ImmArray
     {
-        return ImmArray::fromArray($menNames)->filter(function ($i) {
-            return strtolower($i[0]) === 'c';
-        });
+        return ImmArray::fromArray(range(0, 10, 2));
     }
 
     /**
@@ -50,9 +37,26 @@ class KataZeroFP
     }
 
     /**
+     * @param $menNames
+     * @return ImmArray
+     */
+    public function kataZeroD($menNames): ImmArray
+    {
+        return ImmArray::fromArray($menNames)->filter(function ($i) {
+            return strtolower($i[0]) === 'c';
+        });
+    }
+
+    public function kataZeroE(): int
+    {
+        $range = range(8, 100, 8);
+        return array_sum($range) / count($range);
+    }
+
+    /**
      * @return float|int
      */
-    public function kataZeroE(): int
+    public function kataZeroE2(): int
     {
         $g = function (int $limit, int $i = 8) {
             $counter = 0;
@@ -74,7 +78,7 @@ class KataZeroFP
     /**
      * @return int
      */
-    public function kataZeroE2(): int
+    public function kataZeroE3(): int
     {
         $r = function (int $step, int $limit, int $acc = 0, int $counter = 0) use (&$r) {
             $curr = $counter * $step;
