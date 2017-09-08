@@ -149,17 +149,6 @@ class KataZeroFP
     }
 
     /**
-     * @param $menNames
-     * @return ImmArray
-     */
-    public function kataZeroJ2(array $menNames): ImmArray
-    {
-        $set = ImmArray::fromArray(array_unique($menNames));
-        $set[0] = "Cassio";
-        return $set;
-    }
-
-    /**
      * @param array $womenNames
      * @return array
      */

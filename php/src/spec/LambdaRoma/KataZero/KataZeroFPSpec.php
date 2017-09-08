@@ -59,15 +59,6 @@ class KataZeroFPSpec extends ObjectBehavior
         $this->kataZeroG($this->men)->toArray()->shouldBe(['Caio', 'Calpurnio', 'Filano', 'Mevio', 'Sempronio', 'Tizio']);
     }
 
-    function getMatchers()
-    {
-        return [
-            'beMultipleOf41' => function ($subject) {
-                return $subject % 41 === 0;
-            }
-        ];
-    }
-
     function it_should_find_a_number_divisible_by_41()
     {
         $this->kataZeroH()->shouldBeMultipleOf41();
@@ -81,8 +72,6 @@ class KataZeroFPSpec extends ObjectBehavior
     function it_should_return_a_set_of_men_names()
     {
         $this->kataZeroJ($this->men)->toArray()->shouldBe($this->men);
-        $this->shouldThrow(\Exception::class)->during('kataZeroJ2', [$this->men]);
-
     }
 
     function it_should_return_a_map_of_ordered_women_names()
@@ -102,5 +91,14 @@ class KataZeroFPSpec extends ObjectBehavior
     function it_should_return_list_of_womens_initials()
     {
         $this->kataZeroM($this->women)->toArray()->shouldBe(['A', 'C', 'A', 'C', 'E', 'M', 'S']);
+    }
+
+    function getMatchers()
+    {
+        return [
+            'beMultipleOf41' => function ($subject) {
+                return $subject % 41 === 0;
+            }
+        ];
     }
 }
