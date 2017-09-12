@@ -1,0 +1,12 @@
+Benvenuto alla Società Malvagia. Forniamo tecnologia malvagia della massima qualità
+a tutti i dittatori e furfanti simili. Tu sei il nuovo sviluppatore del reparto censura.
+
+Il nostro ultimo progetto è un progetto di prova di uno dei nostri prodotti precedenti,
+ma questa volta verrà fornito in modo incrementale. Lo facciamo per fare esercizio con
+la metodologia agile, in modo da essere in grado di fornire malvagità presto ed adattarla
+affinché sia possibile fornire malvagità del massimo valore.
+
+Per la prima consegna, dovremmo essere in grado di censurare una parola in un testo.
+--------------------------------------------------------------------------------
+Quindi, se la parola 'nice' è nella lista nera, il nostro cliente si aspetterebbe che il
+testo 'You are a nice person' diventi 'You are a XXXX person'.
