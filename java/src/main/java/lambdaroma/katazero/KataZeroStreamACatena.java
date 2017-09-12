@@ -1,16 +1,12 @@
 package lambdaroma.katazero;
 
 import java.util.*;
-import java.util.function.*;
 import java.util.stream.*;
 
 /***
  * Soluzioni compatte del primo esercizio. Sono soluzioni più brevi, ma più difficili da capire.
  */
 public class KataZeroStreamACatena implements KataZeroInterfaccia {
-    private static final Predicate<Integer> MINORE_DI_DIECI = (Integer integer) -> integer <= 10;
-    private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer <= 100;
-    private static final Collector<CharSequence, ?, String> VIRGOLA_E_SPAZIO = Collectors.joining(", ");
 
     @Override
     public List<Integer> kataZeroA() {
@@ -28,9 +24,9 @@ public class KataZeroStreamACatena implements KataZeroInterfaccia {
 
     @Override
     public List<Integer> kataZeroC() {
-        return Stream.iterate(0, i -> i+ 7)
+        return Stream.iterate(0, i -> i + 7 )
                 .limit(50l)
-                .filter(MINORE_DI_CENTO)
+                .filter(i -> i < 100)
                 .collect(Collectors.toList());
     }
 
@@ -43,7 +39,8 @@ public class KataZeroStreamACatena implements KataZeroInterfaccia {
 
     @Override
     public Double kataZeroE() {
-        return DoubleStream.iterate(8, i -> i + 8.0D).limit(100l)
+        return DoubleStream.iterate(8, i -> i + 8.0D)
+                .limit(100l)
                 .filter(i -> i < 100.0D)
                 .average()
                 .getAsDouble();
@@ -75,8 +72,9 @@ public class KataZeroStreamACatena implements KataZeroInterfaccia {
 
     @Override
     public String kataZeroI() {
-        return ELENCO_UOMINI.stream()
-                .collect(VIRGOLA_E_SPAZIO);
+        return ELENCO_UOMINI
+                .stream()
+                .collect(Collectors.joining(", "));
     }
 
     @Override
