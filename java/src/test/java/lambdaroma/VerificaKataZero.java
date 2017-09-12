@@ -2,6 +2,7 @@ package lambdaroma;
 
 import lambdaroma.katazero.KataZeroImperativo;
 import lambdaroma.katazero.KataZeroInterfaccia;
+import lambdaroma.katazero.KataZeroStreamACatena;
 import lambdaroma.katazero.KataZeroStreamEspliciti;
 import org.junit.Assert;
 import org.junit.Test;
@@ -44,8 +45,13 @@ public class VerificaKataZero {
     }
 
     @Test
-    public void verificaStream(){
+    public void verificaStreamEspliciti(){
         verifica(new KataZeroStreamEspliciti());
+    }
+
+    @Test
+    public void verificaStreamACatena(){
+        verifica(new KataZeroStreamACatena());
     }
 
 }

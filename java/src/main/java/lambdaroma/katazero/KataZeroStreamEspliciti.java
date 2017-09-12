@@ -4,6 +4,10 @@ import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
+/**
+ * Soluzioni del primo esercizio che mostrano come vengono generati vari stream immutabili.
+ * Queste soluzioni sono più prolisse, ma più chiare da capire.
+ */
 public class KataZeroStreamEspliciti implements KataZeroInterfaccia {
     private static final Predicate<Integer> MINORE_DI_DIECI = (Integer integer) -> integer <= 10;
     private static final Predicate<Integer> MINORE_DI_CENTO = (Integer integer) -> integer <= 100;
