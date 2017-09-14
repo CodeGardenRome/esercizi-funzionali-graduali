@@ -11,3 +11,5 @@ libraryDependencies ++= Seq(
 	"org.scalaz"    %% "scalaz-core" % scalazVersion,
 	"org.scalatest" %% "scalatest"   % "3.0.1"  % "test"
 )
+
+cancelable in Global := true
