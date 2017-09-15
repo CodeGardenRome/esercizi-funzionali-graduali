@@ -112,3 +112,40 @@ object Step00ScalaImperative {
   }
 
 }
+
+object Step00ScalaFunctional {
+
+  import scalaz._
+  import Scalaz._
+
+  def a() = Array(1, 2, 3)
+
+  def b() = (1 to 10 filter (_ % 2 == 0)).toArray
+
+  def c() = (1 to 100 filter (_ % 7 == 0)).toArray
+
+  def d(names: Array[String]) = names filter (_.startsWith("C"))
+
+  def e() = {
+    val average: Seq[Int] => Double = 
+      ints => ints.sum.toDouble / ints.size
+    (1 to 100 filter (_ % 8 == 0)) |> average
+  }
+
+  def f() = (1 to 100 filter (_ % 6 == 0)).sum
+
+  def g(names: Array[String]) = names.sorted
+
+  def h(divisor: Int) = (1 to 1000).find(_ % divisor == 0)
+
+  def i(names: Array[String]) = names.mkString(", ")
+
+  def j(names: Array[String]) = names.toSet
+
+  def k(names: Array[String]) = names.groupBy(_.size)
+
+  def l(names: Array[String]) = names.map(_.size)
+
+  def m(names: Array[String]) = names.map(_.charAt(0))
+
+}
