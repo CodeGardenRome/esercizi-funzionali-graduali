@@ -38,7 +38,7 @@ repositories {
     jcenter()
 }
 
-def vavrVersion = '0.9.0'
+def vavrVersion = '0.9.1'
 def scalazVersion = '7.2.10'
 
 // In this section you declare the dependencies for your production and test code
