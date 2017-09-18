@@ -14,16 +14,11 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:0.16"
   }
 }
 
-//Comment the following plugin, if you want to resume junit tests as defaults in gradle
-apply plugin: "com.github.maiflai.scalatest"
-
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-apply plugin: 'scala'
 apply plugin: 'idea'
 
 
