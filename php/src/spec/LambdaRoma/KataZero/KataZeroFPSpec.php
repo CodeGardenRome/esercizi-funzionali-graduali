@@ -18,30 +18,28 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_123()
     {
-        $this->kataZeroA()->toArray()->shouldBe([1, 2, 3]);
+        $this->kataZeroA()->all()->shouldBe([1, 2, 3]);
     }
 
     function it_should_return_even_numbers()
     {
-        $this->kataZeroB()->toArray()->shouldBe([0, 2, 4, 6, 8, 10]);
+        $this->kataZeroB()->all()->shouldBe([0, 2, 4, 6, 8, 10]);
     }
 
     function it_should_find_seven_multiple()
     {
-        $this->kataZeroC()->toArray()->shouldBe([7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98]);
+        $this->kataZeroC()->all()->shouldBe([7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98]);
     }
 
     function it_should_return_c_names()
     {
-        $this->kataZeroD($this->men)->toArray()->shouldBe(['Caio', 'Calpurnio']);
+        $this->kataZeroD($this->men)->contains('Caio')->shouldBe(true);
+        $this->kataZeroD($this->men)->contains('Calpurnio')->shouldBe(true);
     }
 
     function it_should_return_average_of_eight_multiples()
     {
         $this->kataZeroE()->shouldBe(52);
-        $this->kataZeroE2()->shouldBe(52);
-        $this->kataZeroE3()->shouldBe(52);
-
     }
 
     function it_should_return_sum_of_six_multiples()
@@ -49,14 +47,12 @@ class KataZeroFPSpec extends ObjectBehavior
         $this->kataZeroF()->shouldBe(83166);
     }
 
-    function it_should_return_sum_of_six_multiples2()
-    {
-        $this->kataZeroF2()->shouldBe(83166);
-    }
-
     function it_should_order_men_names()
     {
-        $this->kataZeroG($this->men)->toArray()->shouldBe(['Caio', 'Calpurnio', 'Filano', 'Mevio', 'Sempronio', 'Tizio']);
+        $this->kataZeroG($this->men)
+            ->values()
+            ->all()
+            ->shouldBe(['Caio', 'Calpurnio', 'Filano', 'Mevio', 'Sempronio', 'Tizio']);
     }
 
     function it_should_find_a_number_divisible_by_41()
@@ -76,7 +72,7 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_a_map_of_ordered_women_names()
     {
-        $this->kataZeroK($this->women)->shouldBe([
+        $this->kataZeroK($this->women)->toArray()->shouldBe([
             4 => ["Anna", "Emma", "Sara"],
             5 => ["Carla", "Maria"],
             6 => ["Angela", "Chiara"]
@@ -85,7 +81,7 @@ class KataZeroFPSpec extends ObjectBehavior
 
     function it_should_return_list_of_lengths_of_women_names()
     {
-        $this->kataZeroL($this->women)->toArray()->shouldBe([4, 5, 6, 6, 4, 5, 4]);
+        $this->kataZeroL($this->women)->all()->shouldBe([4, 5, 6, 6, 4, 5, 4]);
     }
 
     function it_should_return_list_of_womens_initials()

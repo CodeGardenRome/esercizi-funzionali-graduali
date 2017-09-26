@@ -2,92 +2,55 @@
 
 namespace LambdaRoma\KataZero;
 
-use Qaribou\Collection\ImmArray;
+use Illuminate\Support\Collection;
 
+/**
+ * Class KataZeroFP
+ * @package LambdaRoma\KataZero
+ */
 class KataZeroFP
 {
     /**
-     * @return ImmArray
+     * @return Collection
      */
-    public function kataZeroA(): ImmArray
+    public function kataZeroA(): Collection
     {
-        return ImmArray::fromArray(range(1, 3));
+        return collect(range(1, 3));
     }
 
     /**
-     * @return ImmArray
+     * @return Collection
      */
-    public function kataZeroB(): ImmArray
+    public function kataZeroB(): Collection
     {
-        return ImmArray::fromArray(range(0, 10, 2));
+        return collect(range(0, 10, 2));
     }
 
     /**
-     * @return ImmArray
+     * @return Collection
      */
-    public function kataZeroC(): ImmArray
+    public function kataZeroC(): Collection
     {
-        $g = function (int $limit, int $i = 7) {
-            while ($i <= $limit) {
-                yield $i;
-                $i += 7;
-            }
-        };
-        return ImmArray::fromItems($g(100));
+        return collect(range(7, 100, 7));
     }
 
     /**
-     * @param $menNames
-     * @return ImmArray
+     * @param array $menNames
+     * @return Collection
      */
-    public function kataZeroD($menNames): ImmArray
+    public function kataZeroD($menNames): Collection
     {
-        return ImmArray::fromArray($menNames)->filter(function ($i) {
+        return collect($menNames)->filter(function ($i) {
             return strtolower($i[0]) === 'c';
         });
-    }
-
-    public function kataZeroE(): int
-    {
-        $range = range(8, 100, 8);
-        return array_sum($range) / count($range);
-    }
-
-    /**
-     * @return float|int
-     */
-    public function kataZeroE2(): int
-    {
-        $g = function (int $limit, int $i = 8) {
-            $counter = 0;
-            while ($i <= $limit) {
-                yield $i;
-                $i += 8;
-                $counter++;
-            }
-            return $counter;
-        };
-        $generator = $g(100);
-        $total = ImmArray::fromItems($generator)->reduce(function ($last, $cur) {
-            return $last + $cur;
-        }, 0);
-
-        return $total / $generator->getReturn();
     }
 
     /**
      * @return int
      */
-    public function kataZeroE3(): int
+    public function kataZeroE(): int
     {
-        $r = function (int $step, int $limit, int $acc = 0, int $counter = 0) use (&$r) {
-            $curr = $counter * $step;
-            return $counter * $step > $limit - $step
-                ? $acc / $counter
-                : $r($step, $limit, $acc + ($curr + $step), $counter + 1);
-        };
-
-        return $r(8, 100);
+        return collect(range(8, 100, 8))->average();
     }
 
     /**
@@ -95,30 +58,16 @@ class KataZeroFP
      */
     public function kataZeroF(): int
     {
-        return array_sum(range(6, 1000, 6));
-    }
-
-    /**
-     * @return int
-     */
-    public function kataZeroF2(): int
-    {
-        $g = function () {
-            yield from range(6, 1000, 6);
-        };
-
-        return ImmArray::fromItems($g())->reduce(function ($last, $curr) {
-            return $last + $curr;
-        }, 0);
+        return collect(range(6, 1000, 6))->sum();
     }
 
     /**
      * @param array $menNames
-     * @return ImmArray
+     * @return Collection
      */
-    public function kataZeroG(array $menNames)
+    public function kataZeroG(array $menNames): Collection
     {
-        return ImmArray::fromArray($menNames)->sort();
+        return collect($menNames)->sort();
     }
 
     /**
@@ -126,70 +75,56 @@ class KataZeroFP
      */
     public function kataZeroH(): int
     {
-        $range = range(41, 1000, 41);
-        return $range[array_rand($range)];
+        return collect(range(41, 1000, 41))->random();
     }
 
     /**
-     * @param $menNames
-     * @return mixed|null
+     * @param array $menNames
+     * @return string
      */
     public function kataZeroI(array $menNames): string
     {
-        return ImmArray::fromArray($menNames)->join(', ');
+        return collect($menNames)->implode(", ");
     }
 
     /**
-     * @param $menNames
-     * @return ImmArray
+     * @param array $menNames
+     * @return Collection
      */
-    public function kataZeroJ(array $menNames): ImmArray
+    public function kataZeroJ(array $menNames): Collection
     {
-        return ImmArray::fromArray(array_unique($menNames));
+        return collect($menNames)->unique();
     }
 
     /**
      * @param array $womenNames
-     * @return array
+     * @return Collection
      */
-    public function kataZeroK(array $womenNames): array
+    public function kataZeroK(array $womenNames): Collection
     {
-        $immutableWN = ImmArray::fromArray($womenNames);
-        $ids = $immutableWN->map(function ($i) {
-            return strlen($i);
+        return collect($womenNames)->groupBy(function ($item) {
+            return strlen($item);
         });
-        $indexedWomenNames = ImmArray::fromArray(array_map(null, $ids->toArray(), $immutableWN->toArray()));
-
-        return $indexedWomenNames->reduce(function ($last, $curr) {
-            $key = array_shift($curr);
-            $val = array_shift($curr);
-            if(isset($last[$key]) && is_array($last[$key])) {
-                array_push($last[$key], $val);
-                return $last;
-            }
-            $last[$key] = [$val];
-            return $last;
-        }, []);
     }
 
     /**
-     * @param $womenNames
-     * @return ImmArray
+     * @param array $womenNames
+     * @return Collection
      */
-    public function kataZeroL(array $womenNames): ImmArray
+    public function kataZeroL(array $womenNames): Collection
     {
-        return ImmArray::fromArray($womenNames)->map(function ($i) {
-            return strlen($i);
+        return collect($womenNames)->map(function ($item) {
+            return strlen($item);
         });
     }
 
     /**
      * @param $womenNames
-     * @return ImmArray
+     * @return Collection
      */
-    public function kataZeroM($womenNames): ImmArray
+    public function kataZeroM($womenNames): Collection
     {
-        return ImmArray::fromArray($womenNames)->map(function ($i) {
+        return collect($womenNames)->map(function ($i) {
             return $i[0];
         });
     }
