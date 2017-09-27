@@ -2,18 +2,18 @@
 
 namespace spec\LambdaRoma\KataZero;
 
-use LambdaRoma\KataZero\KataZeroFP;
+use LambdaRoma\KataZero\KataZeroLaravelCollection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class KataZeroFPSpec extends ObjectBehavior
+class KataZeroLaravelCollectionSpec extends ObjectBehavior
 {
     private $men = ["Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio"];
     private $women = ["Anna", "Carla", "Angela", "Chiara", "Emma", "Maria", "Sara"];
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(KataZeroFP::class);
+        $this->shouldHaveType(KataZeroLaravelCollection::class);
     }
 
     function it_should_return_123()

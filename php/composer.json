@@ -3,7 +3,8 @@
   "type": "tutorial",
   "require-dev": {
     "phpspec/phpspec": "^3.0",
-    "phpspec/nyan-formatters": "^2.0"
+    "phpspec/nyan-formatters": "^2.0",
+    "phpbench/phpbench": "@dev"
   },
   "config": {
     "bin-dir": "bin"
@@ -21,6 +22,7 @@
     }
   ],
   "require": {
-    "tightenco/collect": "^5.5"
+    "tightenco/collect": "^5.5",
+    "qaribou/immutable.php": "^1.1"
   }
 }

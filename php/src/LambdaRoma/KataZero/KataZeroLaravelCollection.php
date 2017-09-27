@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
  * Class KataZeroFP
  * @package LambdaRoma\KataZero
  */
-class KataZeroFP
+class KataZeroLaravelCollection
 {
     /**
      * @return Collection
