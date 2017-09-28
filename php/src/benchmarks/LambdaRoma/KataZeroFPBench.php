@@ -1,16 +1,16 @@
 <?php
 namespace benchmarks\LambdaRoma\KataZero;
 
-use LambdaRoma\KataZero\KataZeroLaravelCollection;
+use LambdaRoma\KataZero\KataZeroFP;
 
 /**
- * Class KataZeroLaravelCollectionBench
- * @Groups({"functional", "laravel"})
+ * Class KataZeroQaribuBench
+ * @Groups({"functional", "mutable"})
  * @BeforeMethods({"init"})
  * @Revs(1000)
  * @Iterations(2)
  */
-class KataZeroLaravelCollectionBench
+class KataZeroFPBench
 {
     private $subject;
     private $men = ["Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio"];
@@ -18,7 +18,7 @@ class KataZeroLaravelCollectionBench
 
     public function init()
     {
-        $this->subject = new KataZeroLaravelCollection();
+        $this->subject = new KataZeroFP();
     }
 
     public function benchKataZeroA()
@@ -69,11 +69,6 @@ class KataZeroLaravelCollectionBench
     public function benchKataZeroK()
     {
         $this->subject->kataZeroK($this->women);
-    }
-
-    public function benchKataZeroK2()
-    {
-        $this->subject->kataZeroK2($this->women);
     }
 
     public function benchKataZeroL()

@@ -4,6 +4,10 @@ namespace LambdaRoma\KataZero;
 
 use Qaribou\Collection\ImmArray;
 
+/**
+ * Class KataZeroQaribu
+ * @package LambdaRoma\KataZero
+ */
 class KataZeroQaribu
 {
     /**
@@ -31,22 +35,25 @@ class KataZeroQaribu
     }
 
     /**
-     * @param $menNames
-     * @return ImmArray
+     * @param array $menNames
+     * @return ImmArray ImmArray
      */
-    public function kataZeroD($menNames): ImmArray
+    public function kataZeroD(array $menNames): ImmArray
     {
         return ImmArray::fromArray($menNames)->filter(function ($i) {
             return strtolower($i[0]) === 'c';
         });
     }
 
+    /**
+     * @return int
+     */
     public function kataZeroE(): int
     {
         $range = ImmArray::fromArray(range(8, 100, 8));
         $count = $range->count();
-        $sum = $range->reduce(function ($item, $curry) {
-            return $curry + $item;
+        $sum = $range->reduce(function ($item, $carry) {
+            return $carry + $item;
         }, 0);
         return $sum / $count;
     }
@@ -57,8 +64,8 @@ class KataZeroQaribu
     public function kataZeroF(): int
     {
         $range = ImmArray::fromArray(range(6, 1000, 6));
-        return $range->reduce(function ($item, $curry) {
-            return $curry + $item;
+        return $range->reduce(function ($item, $carry) {
+            return $carry + $item;
         }, 0);
     }
 
@@ -99,27 +106,18 @@ class KataZeroQaribu
     }
 
     /**
-     * TODO REWORK
      * @param array $womenNames
      * @return array
      */
     public function kataZeroK(array $womenNames): array
     {
-        $immutableWN = ImmArray::fromArray($womenNames);
-        $ids = $immutableWN->map(function ($i) {
-            return strlen($i);
-        });
-        $indexedWomenNames = ImmArray::fromArray(array_map(null, $ids->toArray(), $immutableWN->toArray()));
-
-        return $indexedWomenNames->reduce(function ($last, $curr) {
-            $key = array_shift($curr);
-            $val = array_shift($curr);
-            if(isset($last[$key]) && is_array($last[$key])) {
-                array_push($last[$key], $val);
-                return $last;
-            }
-            $last[$key] = [$val];
-            return $last;
+        $immutableNames = ImmArray::fromArray($womenNames);
+        return $immutableNames->reduce(function ($carry, $item) {
+            $index = strlen($item);
+            $carry[$index] = isset($carry[$index])
+                ? array_merge($carry[$index], [$item])
+                : [$item];
+            return $carry;
         }, []);
     }
 

@@ -38,7 +38,7 @@ class KataZeroLaravelCollection
      * @param array $menNames
      * @return Collection
      */
-    public function kataZeroD($menNames): Collection
+    public function kataZeroD(array $menNames): Collection
     {
         return collect($menNames)->filter(function ($i) {
             return strtolower($i[0]) === 'c';
@@ -105,6 +105,23 @@ class KataZeroLaravelCollection
         return collect($womenNames)->groupBy(function ($item) {
             return strlen($item);
         });
+    }
+
+    /**
+     * @param array $womenNames
+     * @return Collection
+     */
+    public function kataZeroK2(array $womenNames): Collection
+    {
+        $transient = collect($womenNames)->reduce(function ($carry, $item) {
+            $index = strlen($item);
+            $carry[$index] = isset($carry[$index])
+                ? array_merge($carry[$index], [$item])
+                : [$item];
+            return $carry;
+        }, []);
+
+        return collect($transient);
     }
 
     /**
