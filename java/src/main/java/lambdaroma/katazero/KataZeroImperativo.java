@@ -4,8 +4,6 @@ import java.util.*;
 
 public class KataZeroImperativo implements KataZeroInterfaccia {
 
-
-
     @Override
     public List<Integer> kataZeroA(){
         List<Integer> lista = new ArrayList<>();

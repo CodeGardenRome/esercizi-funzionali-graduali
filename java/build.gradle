@@ -14,6 +14,7 @@ buildscript {
     }
   }
   dependencies {
+      classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
   }
 }
 
@@ -21,6 +22,8 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'idea'
 
+// Junit 5 plugin
+apply plugin: 'org.junit.platform.gradle.plugin'
 
 test {
     maxParallelForks = 1
@@ -33,14 +36,42 @@ repositories {
     jcenter()
 }
 
+junitPlatform {
+    // platformVersion '1.0.0'
+    filters {
+        engines {
+            include 'junit-jupiter', 'junit-vintage'
+            // exclude 'custom-engine'
+        }
+        tags {
+            include 'fast'
+            exclude 'slow'
+        }
+        includeClassNamePattern '.*Test'
+    }
+    // configurationParameter 'junit.jupiter.conditions.deactivate', '*'
+    // enableStandardTestTask true
+    // reportsDir file('build/test-results/junit-platform') // this is the default
+    logManager 'org.apache.logging.log4j.jul.LogManager'
+}
+
 def vavrVersion = '0.9.1'
-def scalazVersion = '7.2.10'
+ext.log4jVersion         = '2.6.2'
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
     compile "io.vavr:vavr:$vavrVersion"
-    compile "org.scalaz:scalaz-core_2.12:$scalazVersion"
-    testCompile "junit:junit:4.12"
-    testCompile "org.scalatest:scalatest_2.12:3.0.1"
-    testRuntime 'org.pegdown:pegdown:1.4.2'
+
+    testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+    testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0")
+
+    testRuntime("org.junit.platform:junit-platform-launcher:1.0.0")
+}
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '4.0.1'
 }

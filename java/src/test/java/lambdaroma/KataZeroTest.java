@@ -13,7 +13,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("fast")
-public class VerificaKataZero {
+public class KataZeroTest {
 
     public void verifica(KataZeroInterfaccia daVerificare){
         assertEquals(Arrays.asList(1,2,3), daVerificare.kataZeroA());

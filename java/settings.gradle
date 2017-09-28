@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'incremental-katas-jvm-langs'
+rootProject.name = 'esercizi-funzionali-graduali'

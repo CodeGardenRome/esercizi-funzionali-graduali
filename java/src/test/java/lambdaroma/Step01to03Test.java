@@ -19,7 +19,7 @@ import java.util.function.BiFunction;
 import java.util.function.UnaryOperator;
 
 @Tag("fast")
-public class Tester {
+public class Step01to03Test {
 
     @Test
     public void step01(){
