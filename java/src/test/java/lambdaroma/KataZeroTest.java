@@ -4,13 +4,15 @@ import lambdaroma.katazero.KataZeroImperativo;
 import lambdaroma.katazero.KataZeroInterfaccia;
 import lambdaroma.katazero.KataZeroStreamACatena;
 import lambdaroma.katazero.KataZeroStreamEspliciti;
-import org.junit.Assert;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@Tag("fast")
 public class VerificaKataZero {
 
     public void verifica(KataZeroInterfaccia daVerificare){
@@ -22,7 +24,7 @@ public class VerificaKataZero {
         assertEquals(83166, daVerificare.kataZeroF());
         assertEquals(Arrays.asList("Caio","Calpurnio","Filano", "Mevio", "Sempronio", "Tizio"),
                 daVerificare.kataZeroG());
-        Assert.assertTrue(daVerificare.kataZeroH() % 41 == 0);
+        Assertions.assertTrue(daVerificare.kataZeroH() % 41 == 0);
         assertEquals("Tizio, Caio, Sempronio, Mevio, Filano, Calpurnio",
                 daVerificare.kataZeroI());
         assertEquals(new HashSet<>(Arrays.asList("Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio")),
