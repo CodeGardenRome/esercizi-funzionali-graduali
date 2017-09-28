@@ -11,9 +11,16 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bench-build": "babel src -d lib",
+    "bench-run": "node lib/Benchmarks.js",
+    "bench": "yarn bench-build && yarn bench-run"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "benchmark": "^2.1.4",
     "deep-freeze": "^0.0.1",
     "expect": "^21.0.0"
   }

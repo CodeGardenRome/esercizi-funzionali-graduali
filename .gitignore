@@ -3,6 +3,7 @@ php/bin/
 php/vendor/
 js/node_modules
 js/.idea
+js/lib/
 .DS_Store
 js/coverage
 js/build
