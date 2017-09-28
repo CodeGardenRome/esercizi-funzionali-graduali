@@ -45,7 +45,7 @@ public class Step01to03Test {
         String input = "You are a nice person";
         String expected = "You are a XXXX person";
         String output = unaryOperator.apply(input);
-        Assertions.assertEquals(unaryOperator.getClass().toString(), expected, output);
+        Assertions.assertEquals(expected, output, unaryOperator.getClass().toString());
     }
 
     public void step02Test(BiFunction<Set<String>, String, String> biFunction){
@@ -53,7 +53,7 @@ public class Step01to03Test {
         String expected = "Such a XXXX day with a bright XXX, makes me XXXXX";
         Set<String> blacklistedWords = new HashSet<String>(Arrays.asList("nice", "pony", "sun", "light", "fun", "happy", "funny", "joy"));
         String output = biFunction.apply(blacklistedWords, input);
-        Assertions.assertEquals(biFunction.getClass().toString(), expected, output);
+        Assertions.assertEquals(expected, output, biFunction.getClass().toString());
     }
 
     public void step03Test(BiFunction<Set<String>, String, String> biFunction){
@@ -61,6 +61,6 @@ public class Step01to03Test {
         String expected = "You are so XXXXXXXXX";
         Set<String> blacklistedWords = new HashSet<String>(Arrays.asList("friend", "nice", "pony", "sun", "light", "fun", "happy", "funny", "joy"));
         String output = biFunction.apply(blacklistedWords, input);
-        Assertions.assertEquals(biFunction.getClass().toString(), expected, output);
+        Assertions.assertEquals(expected, output, biFunction.getClass().toString());
     }
 }
