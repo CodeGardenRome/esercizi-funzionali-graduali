@@ -1,4 +1,8 @@
-import Set from 'immutable';
+import {
+    List,
+    Range,
+    Set
+} from 'immutable';
 
 export const ZeroA = () => {
     let out = [];
@@ -27,11 +31,11 @@ export const ZeroC = () => {
     return out;
 }
 
-export const ZeroD = (uomini) => {
+export const ZeroD = uomini => {
     let out = [];
     for(let i=0; i <= uomini.length; i++){
         let s = uomini[i];
-        if(s.startsWith("C")){
+        if( typeof s === 'string' && s.startsWith("C")){
             out.push(s);
         }
     }
@@ -59,7 +63,8 @@ export const ZeroF = () => {
 }
 
 export const ZeroG = uomini => {
-    return List(uomini).sort();
+    let copiaUomini = uomini.slice();
+    return copiaUomini.sort();
 }
 
 export const ZeroH = () => {
@@ -67,13 +72,13 @@ export const ZeroH = () => {
     for(let i=41;i<1000;i+=41){
         out.push(i);
     }
-    let j = Math.floor(Math.random()*out.lenght);
+    let j = Math.floor(Math.random()*out.length);
     return out[j];
 }
 
 export const ZeroI = uomini => {
     let out = "";
-    for(let i=0; i < uomini.lenght; i++){
+    for(let i=0; i < uomini.length; i++){
         if(i!=0){
             out += ', ';
         }
@@ -82,30 +87,34 @@ export const ZeroI = uomini => {
     return out;
 }
 
-export const ZeroJ = uomini => {
+export var ZeroJ = uomini => {
     return Set(uomini);
 }
 
 export const ZeroK = donne => {
     let out = {};
-    for(let i=0; i < donne.lenght; i++){
-        let donna = donne[i];
-        out[donna.lenght] += donna;
+    for(let i=0; i < donne.length; i++){
+      let donna = donne[i];
+      if( out.hasOwnProperty( donna.length ) ){
+        out[donna.length].push(donna);
+      }else{
+        out[donna.length] = [donna];
+      }
     }
     return out;
 }
 
 export const ZeroL = donne => {
     let out = [];
-    for(let i=0; i<donne.lenght; i++){
-        out.push(donne[i].lenght);
+    for(let i=0; i<donne.length; i++){
+        out.push(donne[i].length);
     }
     return out;
 }
 
 export const ZeroM = donne => {
     let out = [];
-    for(let i=0; i<donne.lenght; i++){
+    for(let i=0; i<donne.length; i++){
         out.push(donne[i][0]);
     }
     return out;
