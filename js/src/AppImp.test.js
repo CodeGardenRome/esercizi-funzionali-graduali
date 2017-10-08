@@ -45,7 +45,7 @@ it('kata.ZeroF trasforma l\'elenco dei nomi di uomini in una stringa separati da
 });
 
 it('kata.ZeroJ ritorna un set di nomi di uomini', () => {
-    expect(kata.ZeroJ(UOMINI)).toEqual(Set(UOMINI));
+    expect(kata.ZeroJ(UOMINI)).toEqual(new Set(UOMINI));
 });
 
 it('kata.ZeroK ritorna i nomi delle donne raggruppati per la loro lunghezza', () => {

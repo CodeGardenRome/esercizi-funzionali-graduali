@@ -1,9 +1,3 @@
-import {
-    List,
-    Range,
-    Set
-} from 'immutable';
-
 export const ZeroA = () => {
     let out = [];
     for (let i = 1; i <= 3; i++) {
@@ -88,7 +82,7 @@ export const ZeroI = uomini => {
 }
 
 export var ZeroJ = uomini => {
-    return Set(uomini);
+    return new Set(uomini);
 }
 
 export const ZeroK = donne => {
