@@ -20,3 +20,14 @@ spec = do
       stepC `shouldBe` [7,14,21,28,35,42,49,56,63,70,77,84,91,98]
     it "stepD" $ do
       stepD uomini `shouldBe` ["Caio","Calpurnio"]
+    it "stepE" $ do
+      shouldBe stepE 52
+    it "stepF" $ do
+      shouldBe stepF 83166
+    it "stepG" $ do
+      shouldBe (stepG uomini) ["Caio","Calpurnio","Filano","Mevio","Sempronio","Tizio"]
+    it "stepH" $ do
+      r <- stepH
+      shouldSatisfy r (\n -> mod n 41 == 0)
+    it "stepI" $ do
+      shouldBe (stepI uomini) "Tizio, Caio, Sempronio, Mevio, Filano, Calpurnio"
