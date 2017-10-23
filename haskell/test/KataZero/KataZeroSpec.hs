@@ -10,6 +10,13 @@ main = hspec spec
 
 spec :: Spec
 spec = do
+  let uomini = ["Tizio", "Caio", "Sempronio", "Mevio", "Filano", "Calpurnio"]
   describe "KataZero" $ do
     it "stepA" $ do
-      stepA "ciao" `shouldBe` "ciao"
+      stepA `shouldBe` [1,2,3]
+    it "stepB" $ do
+      stepB `shouldBe` [2,4,6,8,10]
+    it "stepC" $ do
+      stepC `shouldBe` [7,14,21,28,35,42,49,56,63,70,77,84,91,98]
+    it "stepD" $ do
+      stepD uomini `shouldBe` ["Caio","Calpurnio"]
