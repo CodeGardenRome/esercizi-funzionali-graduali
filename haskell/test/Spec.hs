@@ -1,10 +1,10 @@
 import Test.Hspec
 
-import qualified KataZero.KataZeroSpec
+import qualified Katas.KataZeroSpec
 
 main :: IO ()
 main = hspec spec
 
 spec :: Spec
 spec = do
-  describe "KataZero" KataZero.KataZeroSpec.spec
+  describe "KataZero" Katas.KataZeroSpec.spec
