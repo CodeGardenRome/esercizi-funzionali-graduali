@@ -13,6 +13,7 @@ Su Windows, scaricare i file di installazione da [qui](https://docs.haskellstack
 ## Inizializzare stack
 Nella directory `/haskell` lanciare
 
+`stack setup`
 `stack build`
 
 # Eseguire i test
