@@ -1,5 +1,22 @@
 Esercizio 1
 
+Data una matrice 3x3 che rappresenta una partita a filetto conclusa, 
+scrivere una funzione che determina se:
+* ha vinto "X", 
+* ha vinto "O" 
+* o c'è stato il pareggio " ".
+
+Ad esempio, data la matrice: 
+
+[ [" ", "O", "X"],
+  [" ", "X", "O"],
+  ["X", " ", " "] ]
+
+La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+
+================================================================================
+Esercizio 2
+
 Dato un vettore di 3 elementi, restituire:
 * "X" se contiene tutte "X"
 * "O" se contiene tutte "O"
@@ -11,20 +28,22 @@ Ad esempio:
 * per ["O","O","X"] deve restituire " "
 * per ["O"," ","X"] deve restituire " "
 
+È possibile svolgere questo esercizio usando la funzione filter?
+
 ================================================================================
-Esercizio 2
+Esercizio 3
 
 Scrivere delle funzioni che, data una cella di partenza, restituiscono la cella
 successiva, per coprire una riga una colonna o una diagonale.
 
 Ad esempio, la funzione
 * cellaSuccessivaRighe([0,0]) = [1,0]
-* cellaSuccessivaColonne([[0,0]]) = [0,1]
+* cellaSuccessivaColonne([0,0]) = [0,1]
 * cellaSuccessivaDiagonaleMaggiore([0,0]) = [1,1]
 * cellaSuccessivaDiagonaleMinore([0,2]) = [1,1]
 
 ================================================================================
-Esercizio 3
+Esercizio 4
 
 Usaro le funzioni create nell'esercizio precedente.
 Data una matrice 3x3, restituire i vettori:
@@ -53,24 +72,12 @@ I vettori delle diagonali sono:
 * ["X","X","X"]
 
 ================================================================================
-Esercizio 4
+Esercizio 5
 
-Data una matrice 3x3 che rappresenta una partita a filetto conclusa, 
-scrivere una funzione che determina se:
-* ha vinto "X", 
-* ha vinto "O" 
-* o c'è stato il pareggio " ".
-
-Ad esempio, data la matrice: 
-
-[ [" ", "O", "X"],
-  [" ", "X", "O"],
-  ["X", " ", " "] ]
-
-La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+Ripetere l'esercizio 1 usando le funzioni create nell'esercizio precedente
 
 ================================================================================
-Esercizio 5
+Esercizio 6
 
 Ripetere l'esercizio precedente con una matrice 10x10
 
@@ -95,3 +102,4 @@ Se il programma dell'esercizio 1 è stato fatto seguendo i principi del paradigm
 non dovresti fare molta fatica per renderlo operativo su una matrice più grande.
 
 Se sei stato particolarmente abile funzionerà in entrambi gli esercizi.
+
