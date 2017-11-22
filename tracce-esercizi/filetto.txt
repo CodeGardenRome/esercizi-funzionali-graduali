@@ -1,0 +1,36 @@
+Esercizio 1
+
+Data una matrice 3x3 che rappresenta una partita a filetto conclusa, scrivere una funzione che determina se ha vinto "X", ha vinto "O" o c'è stato il pareggio " ".
+
+Ad esempio, data la lista: 
+
+[ [" ", "O", "X"],
+  [" ", "X", "O"],
+  ["X", " ", " "] ]
+
+La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+
+Eserzizio 2
+
+Ripetere l'esercizio precedente con una matrice 10x10
+
+Ad esempio, data la lista:
+
+[ ["X"," "," "," "," "," "," "," ","O"," "],
+  [" ","X"," "," "," "," "," "," ","O"," "],
+  [" "," ","X"," "," "," "," "," ","O"," "],
+  [" "," "," ","X"," "," "," "," ","O"," "],
+  [" "," "," "," ","X"," "," "," ","O"," "],
+  [" "," "," "," "," ","X"," "," ","O"," "],
+  [" "," "," "," "," "," ","X"," ","O"," "],
+  [" "," "," "," "," "," "," ","X","O"," "],
+  [" "," "," "," "," "," "," "," ","X","O"],
+  [" "," "," "," "," "," "," "," ","O","X"]
+   ]
+
+
+La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+
+Se il programma dell'esercizio 1 è stato fatto seguendo i principi del paradigma funzionale non dovresti fare molta fatica per renderlo operativo su una matrice più grande.
+
+Se sei stato particolarmente abile funzionerà in entrambi gli esercizi.
