@@ -80,7 +80,7 @@ la funzione generaVettore dovrà restituire il vettore:
 ================================================================================
 Esercizio 5
 
-Usaro le funzioni create nell'esercizio precedente.
+Usa le funzioni create nell'esercizio precedente.
 Data una matrice 3x3, restituire i vettori:
 * delle righe, 
 * delle colonne,
