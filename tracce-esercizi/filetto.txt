@@ -1,7 +1,14 @@
+Questo esercizio è diviso in due percorsi.
+Chi sta imparando la programmazione funzionale, può fare tutti gli esercizi
+in successione.
+Chi già conosce la programmazione funzionale, può fare l'esercizio 1 e poi
+passare direttamente agli esercizi 7 ed 8.
+
+================================================================================
 Esercizio 1
 
 Data una matrice 3x3 che rappresenta una partita a filetto conclusa, 
-scrivere una funzione che determina se:
+scrivere una funzione vincitorePrimoTentativo che determina se:
 * ha vinto "X", 
 * ha vinto "O" 
 * o c'è stato il pareggio " ".
@@ -17,18 +24,18 @@ La funzione deve restituire l'esito corrispondente alla vittoria di "X".
 ================================================================================
 Esercizio 2
 
-Dato un vettore di 3 elementi, restituire:
+Scrivere una funzione vincitore che, dato un vettore di 3 elementi, restitusce:
 * "X" se contiene tutte "X"
 * "O" se contiene tutte "O"
 * " " altrimenti
 
 Ad esempio:
-* per ["X","X","X"] deve restituire "X"
-* per ["O","O","O"] deve restituire "O"
-* per ["O","O","X"] deve restituire " "
-* per ["O"," ","X"] deve restituire " "
+* vincitore(["X","X","X"]) deve restituire "X"
+* vincitore(["O","O","O"]) deve restituire "O"
+* vincitore(["O","O","X"]) deve restituire " "
+* vincitore(["O"," ","X"]) deve restituire " "
 
-È possibile svolgere questo esercizio usando la funzione filter?
+È possibile svolgere questo esercizio usando la funzione filter, con altre?
 
 ================================================================================
 Esercizio 3
@@ -42,8 +49,36 @@ Ad esempio, la funzione
 * cellaSuccessivaDiagonaleMaggiore([0,0]) = [1,1]
 * cellaSuccessivaDiagonaleMinore([0,2]) = [1,1]
 
+Queste funzioni sono dette funzioni successore.
+
 ================================================================================
 Esercizio 4
+
+Scrivere una funzione generaVettore che prende in ingresso:
+* la matrice 3x3
+* la cella di partenza
+* la funzione successore
+
+E restituisce un vettore di 3 elementi corrispondente alla riga.
+
+Ad esempio, data la matrice: 
+
+[ [" ", "O", "X"],
+  [" ", "X", "O"],
+  ["X", " ", " "] ]
+
+Se la cella di partenza è [1,0] e la funzione successore è quella delle righe,
+la funzione generaVettore dovrà restituire il vettore:
+
+[" ","X","O"]
+
+Se, invece, la cella di partenza è [0,2] e la funzione successore è quella delle colonne,
+la funzione generaVettore dovrà restituire il vettore:
+
+["X","O"," "]
+
+================================================================================
+Esercizio 5
 
 Usaro le funzioni create nell'esercizio precedente.
 Data una matrice 3x3, restituire i vettori:
@@ -72,12 +107,12 @@ I vettori delle diagonali sono:
 * ["X","X","X"]
 
 ================================================================================
-Esercizio 5
+Esercizio 6
 
 Ripetere l'esercizio 1 usando le funzioni create nell'esercizio precedente
 
 ================================================================================
-Esercizio 6
+Esercizio 7
 
 Ripetere l'esercizio precedente con una matrice 10x10
 
@@ -102,4 +137,10 @@ Se il programma dell'esercizio 1 è stato fatto seguendo i principi del paradigm
 non dovresti fare molta fatica per renderlo operativo su una matrice più grande.
 
 Se sei stato particolarmente abile funzionerà in entrambi gli esercizi.
+
+================================================================================
+Esercizio 8
+
+È possibile riscrivere la soluzione all'esercizio precedente con meno codice?
+Spiegare il motivo. 
 
