@@ -1,7 +1,7 @@
 module LambdaGardenDue(
-  aggrega, vincitore,
+  aggrega, vincitoreRiga,
   cellaSuccessivaRighe, cellaSuccessivaColonne, cellaSuccessivaDiagonaleMaggiore, cellaSuccessivaDiagonaleMinore,
-  generaVettore, generaVettoriRiga
+  generaVettore, vincitoreMatrice
 ) where
 
 import Data.List --Serve per transpose
@@ -11,8 +11,8 @@ aggrega 'X' 'X' = 'X'
 aggrega 'O' 'O' = 'O'
 aggrega x y = ' '
 
-vincitore :: [Char] -> Char
-vincitore xs = if foldl aggrega 'X' xs == 'X'
+vincitoreRiga :: [Char] -> Char
+vincitoreRiga xs = if foldl aggrega 'X' xs == 'X'
   then 'X'
   else if foldl aggrega 'O' xs == 'O'
     then 'O'
@@ -44,21 +44,15 @@ aggregaVincitore ' ' 'O' = 'O'
 aggregaVincitore ' ' ' ' = ' '
 
 trovaVincitoreRighe :: [[Char]] -> Char
-trovaVincitoreRighe matrice = foldr aggregaVincitore ' '  (map vincitore matrice)
+trovaVincitoreRighe matrice = foldr aggregaVincitore ' '  (map vincitoreRiga matrice)
 
 trovaVincitoreColonne :: [[Char]] -> Char
-trovaVincitoreColonne matrice = foldr aggregaVincitore ' '  (map vincitore (transpose matrice))
+trovaVincitoreColonne matrice = foldr aggregaVincitore ' '  (map vincitoreRiga (transpose matrice))
 
-generaVettoriRiga :: [[Char]] -> (Int,Int) -> [[Char]]
-generaVettoriRiga matrice (x,y) =
-  if x>=0 && y>=0 && (x < length matrice) && (y < length (matrice !! x))
-    then generaVettore matrice (x,y) cellaSuccessivaRighe :
-    generaVettoriRiga matrice (cellaSuccessivaColonne (x,y))
-    else []
-
-generaVettoriColonna :: [[Char]] -> (Int,Int) -> [[Char]]
-generaVettoriColonna matrice (x,y) =
-  if x>=0 && y>=0 && (x < length matrice) && (y < length (matrice !! x))
-    then generaVettore matrice (x,y) cellaSuccessivaColonne :
-    generaVettoriRiga matrice (cellaSuccessivaRighe (x,y))
-    else []
+vincitoreMatrice :: [[Char]] -> Char
+vincitoreMatrice matrice = do
+  let righe = trovaVincitoreRighe matrice
+  let colonne = trovaVincitoreColonne matrice
+  let diagonaleMaggiore = vincitoreRiga (generaVettore matrice (0,0) cellaSuccessivaDiagonaleMaggiore)
+  let diagonaleMinore = vincitoreRiga (generaVettore matrice (2,0) cellaSuccessivaDiagonaleMinore)
+  foldr aggregaVincitore ' ' [righe, colonne, diagonaleMaggiore,diagonaleMinore]
