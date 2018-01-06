@@ -8,7 +8,11 @@ main = hspec spec
 
 spec :: Spec
 spec = do
-  let matrice = [ [' ', 'O', 'X'], [' ', 'X', 'O'], ['X', ' ', ' '] ]
+  let matriceA = [ [' ', 'O', 'X'], [' ', 'X', 'O'], ['X', ' ', ' '] ]
+  let matriceB = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ]
+  let matriceC = [ [' ', 'X', 'O'], [' ', 'O', 'X'], ['O', ' ', ' '] ]
+  let matriceD = [ ['O', 'O', ' '], ['X', 'X', 'X'], [' ', ' ', ' '] ]
+  let matrice10x10 = [ ['X',' ',' ',' ',' ',' ',' ',' ','O',' '], [' ','X',' ',' ',' ',' ',' ',' ','O',' '], [' ',' ','X',' ',' ',' ',' ',' ','O',' '],[' ',' ',' ','X',' ',' ',' ',' ','O',' '], [' ',' ',' ',' ','X',' ',' ',' ','O',' '],  [' ',' ',' ',' ',' ','X',' ',' ','O',' '],  [' ',' ',' ',' ',' ',' ','X',' ','O',' '],  [' ',' ',' ',' ',' ',' ',' ','X','O',' '],  [' ',' ',' ',' ',' ',' ',' ',' ','X','O'],  [' ',' ',' ',' ',' ',' ',' ',' ','O','X']  ]
   describe "Esercizio1" $ do
     it "passoA" $ do
       shouldBe (vincitoreRiga ['X','X','X']) 'X'
@@ -21,10 +25,15 @@ spec = do
       shouldBe (cellaSuccessivaDiagonaleMaggiore (1,1)) (2,2)
       shouldBe ( cellaSuccessivaDiagonaleMinore (2,0)) (1,1)
     it "passoC" $ do
-      shouldBe (generaVettore matrice (0,0) cellaSuccessivaRighe) [' ', 'O', 'X']
-      shouldBe (generaVettore matrice (0,0) cellaSuccessivaColonne) [' ', ' ', 'X']
-      shouldBe (generaVettore matrice (0,0) cellaSuccessivaDiagonaleMaggiore) [' ', 'X', ' ']
-      shouldBe (generaVettore matrice (2,0) cellaSuccessivaDiagonaleMinore) ['X', 'X', 'X']
+      shouldBe (generaVettore matriceA (0,0) cellaSuccessivaRighe) [' ', 'O', 'X']
+      shouldBe (generaVettore matriceA (0,0) cellaSuccessivaColonne) [' ', ' ', 'X']
+      shouldBe (generaVettore matriceA (0,0) cellaSuccessivaDiagonaleMaggiore) [' ', 'X', ' ']
+      shouldBe (generaVettore matriceA (2,0) cellaSuccessivaDiagonaleMinore) ['X', 'X', 'X']
     it "passoD" $ do
-      shouldBe (vincitoreMatrice matrice) 'X'
-    --it "passoE" $ do
+      shouldBe (vincitoreMatrice matriceA) 'X'
+      shouldBe (vincitoreMatrice matriceB) ' '
+      shouldBe (vincitoreMatrice matriceC) 'O'
+      shouldBe (vincitoreMatrice matriceD) 'X'
+  describe "Esercizio1" $ do
+    it "passoE" $ do
+      shouldBe (vincitoreMatrice matrice10x10) 'X'
