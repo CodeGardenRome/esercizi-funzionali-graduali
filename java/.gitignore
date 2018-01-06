@@ -1,6 +1,7 @@
 .ensime*
 .idea
 .gradle
+*.iml
 target/
 /build/
 release.properties
