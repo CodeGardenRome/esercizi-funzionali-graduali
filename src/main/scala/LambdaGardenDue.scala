@@ -1,6 +1,6 @@
 package org.lambdaroma
 
-object DataModel {
+trait Data_Model {
 
   type Matrix = Array[Array[String]]
   type Winner = Option[String]
@@ -9,26 +9,47 @@ object DataModel {
   val X = "X"
   val O = "O"
   val symbols = List(X, O)
+}
 
-  val test_matrix_3x3 =
+object Test_Matrix {
+  
+  val x_winner =
     Array (
      Array ( " ", "O", "X"),
      Array ( " ", "X", "O"),
      Array ( "X", " ", " ")
     )
 
+  val o_winner =
+    Array (
+     Array ( "X", " ", "O"),
+     Array ( " ", "X", "O"),
+     Array ( "X", " ", "O")
+    )
+
+  val stalemate =
+    Array (
+     Array ( "X", "O", "X"),
+     Array ( "O", "X", "O"),
+     Array ( "O", "X", "O")
+    )
+
 }
+
+
 
 object Set_Operations {
 
-  def properly_contains[A](s1: Set[A], s2: Set[A]): Boolean =
+  implicit class Powerset[A](s: Set[A]) {
+    def superset_of(that: Set[A]): Boolean = superset_?(s, that)
+  }
+
+  def superset_?[A](s1: Set[A], s2: Set[A]): Boolean =
     (s1 & s2) == s2
 
 }
 
-object Esercizio_1 {
-
-  import DataModel._
+object Esercizio_1 extends Data_Model {
 
   val matrix_size = 3
 
@@ -51,7 +72,7 @@ object Esercizio_1 {
     )
     
     winners collectFirst {
-      case (symbol, wins) if wins => symbol
+      case (symbol, true) => symbol
     }
   }
 
@@ -70,14 +91,15 @@ object Esercizio_1 {
       .map(_.size)
 
     val (xs, ys) = positions.unzip
+    val poset = positions.toSet
     
     //same row
     counting(xs).exists(_ == matrix_size) ||
     //same column
     counting(ys).exists(_ == matrix_size) ||
     //diagonals
-    properly_contains(positions.toSet, major_diagonal) || 
-    properly_contains(positions.toSet, inverse_diagonal)
+    (poset superset_of major_diagonal) || 
+    (poset superset_of inverse_diagonal)
 
   }
 
