@@ -14,24 +14,24 @@ trait Data_Model {
 object Test_Matrix {
   
   val x_winner =
-    Array (
-     Array ( " ", "O", "X"),
-     Array ( " ", "X", "O"),
-     Array ( "X", " ", " ")
+    Array(
+      Array(" ", "O", "X"),
+      Array(" ", "X", "O"),
+      Array("X", " ", " ")
     )
 
   val o_winner =
-    Array (
-     Array ( "X", " ", "O"),
-     Array ( " ", "X", "O"),
-     Array ( "X", " ", "O")
+    Array(
+      Array("X", " ", "O"),
+      Array(" ", "X", "O"),
+      Array("X", " ", "O")
     )
 
   val stalemate =
-    Array (
-     Array ( "X", "O", "X"),
-     Array ( "O", "X", "O"),
-     Array ( "O", "X", "O")
+    Array(
+      Array("X", "O", "X"),
+      Array("O", "X", "O"),
+      Array("O", "X", "O")
     )
 
 }
