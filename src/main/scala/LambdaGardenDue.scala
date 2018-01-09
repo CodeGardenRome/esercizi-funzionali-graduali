@@ -2,6 +2,7 @@ package org.lambdaroma
 
 trait Data_Model {
 
+  type Row = List[String]
   type Matrix = Array[Array[String]]
   type Winner = Option[String]
   type Position = (Int, Int)
@@ -102,5 +103,14 @@ object Esercizio_1 extends Data_Model {
     (poset superset_of inverse_diagonal)
 
   }
+
+}
+
+object Esercizio_2 extends Data_Model {
+
+  def winner(row: Row): Winner =
+    symbols find ( symbol =>
+      row forall (_ == symbol)
+    )
 
 }
