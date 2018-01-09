@@ -61,7 +61,7 @@ object Esercizio_1 extends Data_Model {
     } yield (x, y)
   ).toSet
 
-  val (major_diagonal, inverse_diagonal) = (
+  val (main_diagonal, inverse_diagonal) = (
     Array.tabulate(matrix_size)( i => (i, i) ).toSet,
     Array.tabulate(matrix_size)( i => (i, matrix_size - i - 1) ).toSet
   )
@@ -99,7 +99,7 @@ object Esercizio_1 extends Data_Model {
     //same column
     counting(ys).exists(_ == matrix_size) ||
     //diagonals
-    (poset superset_of major_diagonal) || 
+    (poset superset_of main_diagonal) || 
     (poset superset_of inverse_diagonal)
 
   }
@@ -112,5 +112,25 @@ object Esercizio_2 extends Data_Model {
     symbols find ( symbol =>
       row forall (_ == symbol)
     )
+
+}
+
+object Esercizio_3 extends Data_Model {
+
+  def successive_row(p: Position): Position = p match {
+    case (x, y) => (x + 1, y) 
+  }
+
+  def successive_column(p: Position): Position = p match {
+    case (x, y) => (x, y + 1) 
+  }
+
+  def successive_main_diagonal(p: Position): Position = p match {
+    case (x, y) => (x + 1, y + 1) 
+  }
+
+  def successive_inverse_diagonal(p: Position): Position = p match {
+    case (x, y) => (x + 1, y - 1) 
+  }
 
 }
