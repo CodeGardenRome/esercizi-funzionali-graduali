@@ -2,8 +2,8 @@ package org.lambdaroma
 
 trait Data_Model {
 
-  type Row = List[String]
-  type Matrix = Array[Array[String]]
+  type Row = Vector[String]
+  type Matrix = Vector[Vector[String]]
   type Winner = Option[String]
   type Position = (Int, Int)
 
@@ -15,24 +15,24 @@ trait Data_Model {
 object Test_Matrix {
   
   val x_winner =
-    Array(
-      Array(" ", "O", "X"),
-      Array(" ", "X", "O"),
-      Array("X", " ", " ")
+    Vector(
+      Vector(" ", "O", "X"),
+      Vector(" ", "X", "O"),
+      Vector("X", " ", " ")
     )
 
   val o_winner =
-    Array(
-      Array("X", " ", "O"),
-      Array(" ", "X", "O"),
-      Array("X", " ", "O")
+    Vector(
+      Vector("X", " ", "O"),
+      Vector(" ", "X", "O"),
+      Vector("X", " ", "O")
     )
 
   val stalemate =
-    Array(
-      Array("X", "O", "X"),
-      Array("O", "X", "O"),
-      Array("O", "X", "O")
+    Vector(
+      Vector("X", "O", "X"),
+      Vector("O", "X", "O"),
+      Vector("O", "X", "O")
     )
 
 }
@@ -62,8 +62,8 @@ object Esercizio_1 extends Data_Model {
   ).toSet
 
   val (main_diagonal, inverse_diagonal) = (
-    Array.tabulate(matrix_size)( i => (i, i) ).toSet,
-    Array.tabulate(matrix_size)( i => (i, matrix_size - i - 1) ).toSet
+    Vector.tabulate(matrix_size)( i => (i, i) ).toSet,
+    Vector.tabulate(matrix_size)( i => (i, matrix_size - i - 1) ).toSet
   )
 
   def winner(matrix: Matrix): Winner = {
