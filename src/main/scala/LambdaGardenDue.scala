@@ -3,7 +3,7 @@ package org.lambdaroma
 trait Data_Model {
 
   type Row = Vector[String]
-  type Matrix = Vector[Vector[String]]
+  type Matrix = Vector[Row]
   type Winner = Option[String]
   type Position = (Int, Int)
 
@@ -132,5 +132,20 @@ object Esercizio_3 extends Data_Model {
   def successive_inverse_diagonal(p: Position): Position = p match {
     case (x, y) => (x + 1, y - 1) 
   }
+
+}
+
+object Esercizio_4 extends Data_Model {
+
+  def generate_vector(
+    matrix: Matrix,
+    start: Position,
+    successor: Position => Position
+  ): Row =
+    Vector.iterate(start, matrix.size)(successor)
+      .map {
+        case (x,y) => matrix(x)(y)
+      }
+
 
 }
