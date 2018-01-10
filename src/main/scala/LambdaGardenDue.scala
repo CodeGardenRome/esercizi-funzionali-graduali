@@ -50,6 +50,23 @@ object Set_Operations {
 
 }
 
+/** Esercizio 1
+  *
+  * Data una matrice 3x3 che rappresenta una partita a filetto conclusa, 
+  * scrivere una funzione vincitorePrimoTentativo che determina se:
+  * * ha vinto "X", 
+  * * ha vinto "O" 
+  * * o c'è stato il pareggio " ".
+  * 
+  * Ad esempio, data la matrice: 
+  * 
+  * [ [" ", "O", "X"],
+  *   [" ", "X", "O"],
+  *   ["X", " ", " "] ]
+  * 
+  * La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+  * 
+  */
 object Esercizio_1 extends Data_Model {
 
   val matrix_size = 3
@@ -106,6 +123,21 @@ object Esercizio_1 extends Data_Model {
 
 }
 
+/** Esercizio 2
+  * 
+  * Scrivere una funzione vincitore che, dato un vettore di 3 elementi, restitusce:
+  * * "X" se contiene tutte "X"
+  * * "O" se contiene tutte "O"
+  * * " " altrimenti
+  * 
+  * Ad esempio:
+  * * vincitore(["X","X","X"]) deve restituire "X"
+  * * vincitore(["O","O","O"]) deve restituire "O"
+  * * vincitore(["O","O","X"]) deve restituire " "
+  * * vincitore(["O"," ","X"]) deve restituire " "
+  * 
+  * È possibile svolgere questo esercizio usando la funzione filter, con altre?
+  */
 object Esercizio_2 extends Data_Model {
 
   def winner(row: Row): Winner =
@@ -115,6 +147,21 @@ object Esercizio_2 extends Data_Model {
 
 }
 
+
+/** Esercizio 3
+  * 
+  * Scrivere delle funzioni che, data una cella di partenza, restituiscono la cella
+  * successiva, per coprire una riga una colonna o una diagonale.
+  * 
+  * Ad esempio, la funzione
+  * * cellaSuccessivaRighe([0,0]) = [1,0]
+  * * cellaSuccessivaColonne([0,0]) = [0,1]
+  * * cellaSuccessivaDiagonaleMaggiore([0,0]) = [1,1]
+  * * cellaSuccessivaDiagonaleMinore([0,2]) = [1,1]
+  * 
+  * Queste funzioni sono dette funzioni successore.
+  * 
+  */
 object Esercizio_3 extends Data_Model {
 
   def successive_row(p: Position): Position = p match {
@@ -135,6 +182,33 @@ object Esercizio_3 extends Data_Model {
 
 }
 
+
+/** Esercizio 4
+  * 
+  * Scrivere una funzione generaVettore che prende in ingresso:
+  * * la matrice 3x3
+  * * la cella di partenza
+  * * la funzione successore
+  * 
+  * E restituisce un vettore di 3 elementi corrispondente alla riga.
+  * 
+  * Ad esempio, data la matrice: 
+  * 
+  * [ [" ", "O", "X"],
+  *   [" ", "X", "O"],
+  *   ["X", " ", " "] ]
+  * 
+  * Se la cella di partenza è [1,0] e la funzione successore è quella delle righe,
+  * la funzione generaVettore dovrà restituire il vettore:
+  * 
+  * [" ","X","O"]
+  * 
+  * Se, invece, la cella di partenza è [0,2] e la funzione successore è quella delle colonne,
+  * la funzione generaVettore dovrà restituire il vettore:
+  * 
+  * ["X","O"," "]
+  * 
+  */
 object Esercizio_4 extends Data_Model {
 
   def generate_vector(
@@ -149,6 +223,35 @@ object Esercizio_4 extends Data_Model {
 
 }
 
+/** Esercizio 5
+  * 
+  * Usa le funzioni create nell'esercizio precedente.
+  * Data una matrice 3x3, restituire i vettori:
+  * * delle righe, 
+  * * delle colonne,
+  * * delle diagonali
+  * 
+  * Ad esempio, data la matrice: 
+  * 
+  * [ [" ", "O", "X"],
+  *   [" ", "X", "O"],
+  *   ["X", " ", " "] ]
+  * 
+  * I vettori delle righe sono: 
+  * * [" ", "O", "X"]
+  * * [" ", "X", "O"]
+  * * ["X", " ", " "]
+  * 
+  * I vettori delle colonne sono:
+  * * [" "," ","X"]
+  * * ["O","X"," "]
+  * * ["X","O"," "]
+  * 
+  * I vettori delle diagonali sono:
+  * * [" ","X"," "]
+  * * ["X","X","X"]
+  * 
+  */
 object Esercizio_5 extends Data_Model {
 
   import Esercizio_3._
