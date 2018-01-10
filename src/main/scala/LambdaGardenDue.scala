@@ -252,20 +252,19 @@ object Esercizio_4 extends Data_Model {
   * * ["X","X","X"]
   * 
   */
-object Esercizio_5 extends Data_Model {
+object Esercizio_5 {
 
   import Esercizio_3._
   import Esercizio_4._
+  
+  val row_seed = Vector((0,0), (1,0), (2,0))
+  val column_seed = Vector((0,0), (0,1), (0,2))
 
-  def rows_of(matrix: Matrix): Vector[Row] = {
-    val seed = Vector((0,0), (1,0), (2,0))
-    seed map (generate_vector(matrix, _, successive_column))
-  }
+  def rows_of(matrix: Matrix): Vector[Row] =
+    row_seed map (generate_vector(matrix, _, successive_column))
 
-  def columns_of(matrix: Matrix): Vector[Row] = {
-    val seed = Vector((0,0), (0,1), (0,2))
-    seed map (generate_vector(matrix, _, successive_row))
-  }
+  def columns_of(matrix: Matrix): Vector[Row] =
+    column_seed map (generate_vector(matrix, _, successive_row))
 
   def main_diagonal_of(matrix: Matrix): Row =
     generate_vector(matrix, (0,0), successive_main_diagonal)
@@ -280,7 +279,7 @@ object Esercizio_5 extends Data_Model {
   * Ripetere l'esercizio 1 usando le funzioni create nell'esercizio precedente
   * 
   */
-object Esercizio_6 extends Data_Model {
+object Esercizio_6 {
   
   import Esercizio_2._
   import Esercizio_5._
