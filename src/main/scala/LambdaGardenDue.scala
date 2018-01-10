@@ -140,7 +140,7 @@ object Esercizio_1 extends Data_Model {
   */
 object Esercizio_2 extends Data_Model {
 
-  def winner(row: Row): Winner =
+  def winning_row(row: Row): Winner =
     symbols find ( symbol =>
       row forall (_ == symbol)
     )
@@ -272,5 +272,32 @@ object Esercizio_5 extends Data_Model {
 
   def inverse_diagonal_of(matrix: Matrix): Row =
     generate_vector(matrix, (2,2), successive_inverse_diagonal)
+
+}
+
+/** Esercizio 6
+  * 
+  * Ripetere l'esercizio 1 usando le funzioni create nell'esercizio precedente
+  * 
+  */
+object Esercizio_6 extends Data_Model {
+  
+  import Esercizio_2._
+  import Esercizio_5._
+
+  def winner(matrix: Matrix): Winner = {
+
+    val matrix_lines =
+      rows_of(matrix) ++
+      columns_of(matrix) :+
+      main_diagonal_of(matrix) :+
+      inverse_diagonal_of(matrix)
+
+    matrix_lines
+      .map(winning_row)
+      .find(_.isDefined)
+      .flatten
+
+  }
 
 }
