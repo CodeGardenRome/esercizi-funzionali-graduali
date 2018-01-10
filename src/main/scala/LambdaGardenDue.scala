@@ -301,3 +301,71 @@ object Esercizio_6 extends Data_Model {
   }
 
 }
+
+
+/** Esercizio 7
+  * 
+  * Ripetere l'esercizio precedente con una matrice 10x10
+  * 
+  * Ad esempio, data la lista:
+  * 
+  * [ ["X"," "," "," "," "," "," "," ","O"," "],
+  *   [" ","X"," "," "," "," "," "," ","O"," "],
+  *   [" "," ","X"," "," "," "," "," ","O"," "],
+  *   [" "," "," ","X"," "," "," "," ","O"," "],
+  *   [" "," "," "," ","X"," "," "," ","O"," "],
+  *   [" "," "," "," "," ","X"," "," ","O"," "],
+  *   [" "," "," "," "," "," ","X"," ","O"," "],
+  *   [" "," "," "," "," "," "," ","X","O"," "],
+  *   [" "," "," "," "," "," "," "," ","X","O"],
+  *   [" "," "," "," "," "," "," "," ","O","X"]
+  * ]
+  * 
+  * La funzione deve restituire l'esito corrispondente alla vittoria di "X".
+  * 
+  */
+object Esercizio_7 {
+
+  object Esercizio_5_reloaded {
+    import Esercizio_3._
+    import Esercizio_4._
+ 
+    def rows_of(matrix: Matrix): Vector[Row] = {
+      val row_seed = (0 until matrix.size).toVector.map((_,0))
+      row_seed map (generate_vector(matrix, _, successive_column))
+    }
+
+    def columns_of(matrix: Matrix): Vector[Row] = {
+      val column_seed = (0 until matrix.size).toVector.map((0,_))
+      column_seed map (generate_vector(matrix, _, successive_row))
+    }
+
+    def main_diagonal_of(matrix: Matrix): Row =
+      generate_vector(matrix, (0,0), successive_main_diagonal)
+
+    def inverse_diagonal_of(matrix: Matrix): Row =
+      generate_vector(matrix, (2,2), successive_inverse_diagonal)
+  
+  }
+
+  import Esercizio_2._
+  import Esercizio_5_reloaded._
+
+  def winner(matrix: Matrix): Winner = {
+
+    val matrix_lines =
+      rows_of(matrix) ++
+      columns_of(matrix) :+
+      main_diagonal_of(matrix) :+
+      inverse_diagonal_of(matrix)
+
+    matrix_lines
+      .map(winning_row)
+      .find(_.isDefined)
+      .flatten
+
+  }
+
+
+
+}
