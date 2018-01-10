@@ -147,5 +147,27 @@ object Esercizio_4 extends Data_Model {
         case (x,y) => matrix(x)(y)
       }
 
+}
+
+object Esercizio_5 extends Data_Model {
+
+  import Esercizio_3._
+  import Esercizio_4._
+
+  def rows_of(matrix: Matrix): Vector[Row] = {
+    val seed = Vector((0,0), (1,0), (2,0))
+    seed map (generate_vector(matrix, _, successive_column))
+  }
+
+  def columns_of(matrix: Matrix): Vector[Row] = {
+    val seed = Vector((0,0), (0,1), (0,2))
+    seed map (generate_vector(matrix, _, successive_row))
+  }
+
+  def main_diagonal_of(matrix: Matrix): Row =
+    generate_vector(matrix, (0,0), successive_main_diagonal)
+
+  def inverse_diagonal_of(matrix: Matrix): Row =
+    generate_vector(matrix, (2,2), successive_inverse_diagonal)
 
 }
