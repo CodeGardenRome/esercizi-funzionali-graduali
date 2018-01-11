@@ -67,13 +67,13 @@ Ad esempio, data la matrice:
   [" ", "X", "O"],
   ["X", " ", " "] ]
 
-Se la cella di partenza è [1,0] e la funzione successore è quella delle righe,
-la funzione generaVettore dovrà restituire il vettore:
+Se la cella di partenza è [1,0] e la funzione successore è quella che incrementa il numero di colonna,
+la funzione generaVettore dovrà restituire il vettore, corrispondente alla seconda riga:
 
 [" ","X","O"]
 
-Se, invece, la cella di partenza è [0,2] e la funzione successore è quella delle colonne,
-la funzione generaVettore dovrà restituire il vettore:
+Se, invece, la cella di partenza è [0,2] e la funzione successore è quella che incrementa il numero di riga,
+la funzione generaVettore dovrà restituire il vettore, corrispondente all'ultima colonna:
 
 ["X","O"," "]
 
