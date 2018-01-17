@@ -27,6 +27,8 @@ public class LambdaGardenDue {
         }
     }
 
+    static final Cella CELLA_ZERO = new Cella(0,0);
+
     public Character aggrega(Character a, Character b){
         if(a=='X' && b=='X')return 'X';
         if(a=='O' && b=='O')return 'O';
@@ -63,14 +65,6 @@ public class LambdaGardenDue {
 
     }
 
-    public Character[] generaVettoreGen(Character[][] partita, Cella inizio, UnaryOperator<Cella> successore){
-        return Stream.iterate(inizio,successore)
-                .limit(partita.length * partita.length)
-                .map(cella -> estrai(partita,cella))
-                .filter(opt -> opt.isPresent())
-                .map(opt -> opt.get())
-                .toArray(size->new Character[size]);
-    }
 
     public Character[] generaVettore(Character[][] partita, Cella inizio, UnaryOperator<Cella> successore){
         return Stream.iterate(inizio,successore)
@@ -79,13 +73,19 @@ public class LambdaGardenDue {
                 .toArray(size->new Character[size]);
     }
 
+    public Stream<Character> generaStream(Character[][] partita, Cella inizio, UnaryOperator<Cella> successore){
+        return Stream.iterate(inizio,successore)
+                .limit(partita.length)
+                .map(cella -> partita[cella.x][cella.y]);
+    }
+
     public Character aggregaVincitore(Character a, Character b){
         if(a=='X' && b==' ') return 'X';
         if(a==' ' && b=='X') return 'X';
         if(a=='O' && b==' ') return 'O';
         if(a==' ' && b=='O') return 'O';
         if(a==' ' && b==' ') return ' ';
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(a + " " + b);
     }
 
     public Character trovaVincitoreRighe(Character[][] partita){
@@ -93,31 +93,32 @@ public class LambdaGardenDue {
                 .map(riga -> Arrays.stream(riga))
                 .map(stream->stream.reduce(this::aggrega))
                 .map(optional->optional.get())
-                .reduce(this::aggrega);
+                .reduce(this::aggregaVincitore);
         return opt.get();
     }
 
-    public Character trovaVincitore(Character[][] partita, UnaryOperator<Cella> successore){
-        Optional<Character> opt = Stream.iterate(new Cella(0,0),this::cellaSuccessivaRighe)
+    public Character trovaVincitoreColonne(Character[][] partita){
+        Optional<Character> opt = Stream.iterate(CELLA_ZERO,this::cellaSuccessivaRighe)
                 .limit(partita.length)
                 .map(cella ->  generaVettore(partita,cella, this::cellaSuccessivaColonne))
                 .map(riga -> Arrays.stream(riga))
                 .map(stream->stream.reduce(this::aggrega))
                 .map(optional->optional.get())
+                .reduce(this::aggregaVincitore);
+        return opt.get();
+    }
+
+
+    public Character trovaVincitoreDiagonaleMaggiore(Character[][] partita){
+        Optional<Character> opt = generaStream(partita,CELLA_ZERO, this::cellaSuccessivaDiagonaleMaggiore)
                 .reduce(this::aggrega);
         return opt.get();
     }
 
-    public Character trovaVincitoreColonne(Character[][] partita){
-        return trovaVincitore(partita, this::cellaSuccessivaColonne);
-    }
-
-    public Character trovaVincitoreDiagonaleMaggiore(Character[][] partita){
-        return trovaVincitore(partita, this::cellaSuccessivaDiagonaleMaggiore);
-    }
-
     public Character trovaVincitoreDiagonaleMinore(Character[][] partita){
-        return trovaVincitore(partita, this::cellaSuccessivaDiagonaleMinore);
+        Optional<Character> opt = generaStream(partita,new Cella(partita.length-1,0), this::cellaSuccessivaDiagonaleMinore)
+                .reduce(this::aggrega);
+        return opt.get();
     }
 
     public Character vincitoreMatrice(Character[][] partita){

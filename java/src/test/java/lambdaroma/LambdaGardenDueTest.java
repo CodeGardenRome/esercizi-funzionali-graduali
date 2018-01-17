@@ -1,5 +1,6 @@
 package lambdaroma;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import lambdaroma.LambdaGardenDue.Cella;
@@ -64,4 +65,40 @@ public class LambdaGardenDueTest {
         assertEquals(new Cella(1,1), lambdaGardenDue.cellaSuccessivaDiagonaleMinore(new Cella(2,0)));
     }
 
+    @Test
+    void verificaParteC(){
+        Character[] rigaA = {' ','O','X'};
+        assertArrayEquals(rigaA, lambdaGardenDue.generaVettore(matriceA,new Cella(0,0), lambdaGardenDue::cellaSuccessivaRighe));
+        Character[] rigaB = {' ',' ','X'};
+        assertArrayEquals(rigaB, lambdaGardenDue.generaVettore(matriceA,new Cella(0,0), lambdaGardenDue::cellaSuccessivaColonne));
+        Character[] rigaC = {' ','X',' '};
+        assertArrayEquals(rigaC, lambdaGardenDue.generaVettore(matriceA,new Cella(0,0), lambdaGardenDue::cellaSuccessivaDiagonaleMaggiore));
+        Character[] rigaD = {'X','X','X'};
+        assertArrayEquals(rigaD, lambdaGardenDue.generaVettore(matriceA,new Cella(2,0), lambdaGardenDue::cellaSuccessivaDiagonaleMinore));
+    }
+
+    @Test
+    void verificaParteD1(){
+        assertEquals(Character.valueOf('X'), lambdaGardenDue.vincitoreMatrice(matriceA));
+    }
+
+    @Test
+    void verificaParteD2(){
+        assertEquals(Character.valueOf(' '), lambdaGardenDue.vincitoreMatrice(matriceB));
+    }
+
+    @Test
+    void verificaParteD3(){
+        assertEquals(Character.valueOf('O'), lambdaGardenDue.vincitoreMatrice(matriceC));
+    }
+
+    @Test
+    void verificaParteD4(){
+        assertEquals(Character.valueOf('X'), lambdaGardenDue.vincitoreMatrice(matriceD));
+    }
+
+    @Test
+    void verificaParteE(){
+        assertEquals(Character.valueOf('X'), lambdaGardenDue.vincitoreMatrice(matrice10x10));
+    }
 }
